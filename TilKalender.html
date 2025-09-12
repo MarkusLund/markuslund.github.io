@@ -6,323 +6,538 @@
     <title>TilKalender - Support og Eierskapsdokumentasjon</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
-      .support-container {
-        max-width: 800px;
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1000px;
         margin: 0 auto;
         padding: 20px;
-        line-height: 1.6;
       }
 
-      .ownership-section {
-        background-color: #f5f5f5;
-        padding: 30px;
-        margin: 30px 0;
-        border-radius: 8px;
-        border: 2px solid #0084b4;
+      .header-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 15px;
       }
 
-      .document-info {
-        background-color: #e8f4f8;
-        padding: 20px;
-        margin: 20px 0;
-        border-radius: 5px;
-        border-left: 4px solid #0084b4;
-      }
-
-      .contact-section {
-        background-color: #f9f9f9;
-        padding: 25px;
-        margin: 25px 0;
-        border-radius: 8px;
-      }
-
-      .signature-block {
-        margin-top: 30px;
-        padding: 20px;
-        background-color: white;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-
-      h2 {
-        color: #0084b4;
-        border-bottom: 2px solid #0084b4;
-        padding-bottom: 10px;
-      }
-
-      h3 {
-        color: #333;
-        margin-top: 25px;
-      }
-
-      .app-info {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        padding: 20px;
-        margin: 20px 0;
-        border-radius: 5px;
-      }
-
-      .back-link {
-        display: inline-block;
-        margin-bottom: 20px;
-        padding: 10px 20px;
-        background-color: #0084b4;
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.15);
         color: white;
         text-decoration: none;
-        border-radius: 5px;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        font-weight: 500;
       }
 
-      .back-link:hover {
-        background-color: #006a91;
-        text-decoration: none;
-      }
-
-      .date-stamp {
-        font-style: italic;
-        color: #666;
-        margin-top: 10px;
+      .back-button:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       }
 
       .language-switcher {
-        float: right;
-        margin-bottom: 20px;
+        display: flex;
+        gap: 5px;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 4px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
       }
 
       .language-switcher a {
-        padding: 8px 15px;
-        margin-left: 5px;
-        background-color: #f0f0f0;
-        color: #333;
+        padding: 8px 16px;
+        color: rgba(255, 255, 255, 0.8);
         text-decoration: none;
-        border-radius: 4px;
-        border: 1px solid #ddd;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        font-weight: 500;
       }
 
+      .language-switcher a.active,
       .language-switcher a:hover {
-        background-color: #e0e0e0;
-      }
-
-      .language-switcher a.active {
-        background-color: #0084b4;
+        background: rgba(255, 255, 255, 0.3);
         color: white;
-        border-color: #0084b4;
       }
 
-      .clearfix::after {
-        content: "";
-        display: table;
-        clear: both;
+      .main-content {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .hero-section {
+        text-align: center;
+        margin-bottom: 50px;
+        padding-bottom: 30px;
+        border-bottom: 2px solid #f0f0f0;
+      }
+
+      .app-title {
+        font-size: 3em;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2em;
+        color: #666;
+        margin: 0 0 30px 0;
+        font-weight: 400;
+      }
+
+      .app-showcase {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+      }
+
+      .app-icon {
+        width: 120px;
+        height: 120px;
+        border-radius: 27px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .app-icon:hover {
+        transform: scale(1.05);
+      }
+
+      .app-details {
+        text-align: left;
+        max-width: 400px;
+      }
+
+      .app-details h2 {
+        margin: 0 0 15px 0;
+        font-size: 1.8em;
+        color: #333;
+      }
+
+      .detail-item {
+        margin: 10px 0;
+        font-size: 1.1em;
+      }
+
+      .detail-label {
+        font-weight: 600;
+        color: #555;
+      }
+
+      .download-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #007aff, #5856d6);
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1em;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
+      }
+
+      .download-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(0, 122, 255, 0.4);
+        background: linear-gradient(135deg, #0051d5, #4c3cce);
+      }
+
+      .section {
+        margin: 40px 0;
+        padding: 30px;
+        background: #fafafa;
+        border-radius: 15px;
+        border-left: 5px solid #667eea;
+      }
+
+      .section-title {
+        font-size: 1.8em;
+        font-weight: 700;
+        margin: 0 0 20px 0;
+        color: #333;
+      }
+
+      .ownership-declaration {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 20px;
+        margin: 40px 0;
+        box-shadow: 0 15px 35px rgba(240, 147, 251, 0.3);
+      }
+
+      .ownership-declaration h2 {
+        color: white;
+        font-size: 2em;
+        margin-bottom: 25px;
+      }
+
+      .declaration-content {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 30px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        margin: 20px 0;
+      }
+
+      .business-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 25px 0;
+      }
+
+      .business-detail-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+      }
+
+      .signature-block {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .faq-section {
+        background: #fff;
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .faq-item {
+        margin: 25px 0;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+      }
+
+      .faq-question {
+        font-weight: 600;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .faq-answer {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 25px 0;
+      }
+
+      .contact-item {
+        text-align: center;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .contact-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-icon {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 50px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        color: white;
+      }
+
+      .footer a {
+        color: #87ceeb;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+
+        .main-content {
+          padding: 25px;
+        }
+
+        .app-title {
+          font-size: 2.2em;
+        }
+
+        .app-showcase {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .app-details {
+          text-align: center;
+        }
+
+        .header-nav {
+          flex-direction: column;
+          align-items: stretch;
+          text-align: center;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="support-container">
-      <div class="clearfix">
-        <a href="index.html" class="back-link">← Tilbake til hovedside</a>
+    <div class="container">
+      <div class="header-nav">
+        <a href="index.html" class="back-button"> ← Tilbake til hovedside </a>
         <div class="language-switcher">
           <a href="ToCalendar.html">English</a>
           <a href="TilKalender.html" class="active">Norsk</a>
         </div>
       </div>
 
-      <header>
-        <h1>TilKalender (ToCalendar)</h1>
-        <p><strong>Support og Eierskapsdokumentasjon</strong></p>
-      </header>
+      <div class="main-content">
+        <div class="hero-section">
+          <h1 class="app-title">TilKalender</h1>
+          <p class="hero-subtitle">Support og Eierskapsdokumentasjon</p>
 
-      <div class="app-info">
-        <div
-          style="
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            margin-bottom: 20px;
-          "
-        >
-          <img
-            src="TilKalender.png"
-            alt="TilKalender App Ikon"
-            style="
-              width: 80px;
-              height: 80px;
-              border-radius: 16px;
-              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            "
-          />
-          <div>
-            <h2 style="margin-top: 0">Om Appen</h2>
-            <p><strong>App Navn:</strong> TilKalender (ToCalendar)</p>
-            <p>
-              <strong>Utvikler:</strong> Markus Haave Lund, (Markus Lund |
-              1342356535)
-            </p>
-            <p><strong>Plattform:</strong> iOS App Store</p>
-            <p>
-              <strong>Last ned:</strong>
+          <div class="app-showcase">
+            <img
+              src="TilKalender.png"
+              alt="TilKalender App Ikon"
+              class="app-icon"
+            />
+            <div class="app-details">
+              <h2>Om Appen</h2>
+              <div class="detail-item">
+                <span class="detail-label">App Navn:</span> TilKalender
+                (ToCalendar)
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Utvikler:</span> Markus Haave Lund,
+                (Markus Lund | 1342356535)
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Plattform:</span> iOS App Store
+              </div>
               <a
                 href="https://apps.apple.com/us/app/tilkalender/id6751863693"
                 target="_blank"
-                style="
-                  background-color: #007aff;
-                  color: white;
-                  padding: 8px 16px;
-                  text-decoration: none;
-                  border-radius: 8px;
-                  display: inline-block;
-                  margin-top: 8px;
-                "
-                >📱 Last ned fra App Store</a
+                class="download-button"
+              >
+                📱 Last ned fra App Store
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ownership-declaration">
+          <h2>🏢 Eierskapsdokumentasjon</h2>
+
+          <div class="declaration-content">
+            <h3>Offisiell Erklæring om Eierskap</h3>
+            <p>Undertegnede bekrefter herved følgende:</p>
+
+            <div class="business-details">
+              <div class="business-detail-item">
+                <strong>Eier:</strong> Markus Haave Lund, tidligere Markus Lund
+                (Markus Lund|1342356535)
+              </div>
+              <div class="business-detail-item">
+                <strong>Virksomhet/App:</strong> TilKalender (ToCalendar)
+              </div>
+              <div class="business-detail-item">
+                <strong>Tilknytning:</strong> Eneeier og hovedutvikler
+              </div>
+            </div>
+
+            <p>
+              Jeg, Markus Haave Lund, tidligere Markus Lund, bekrefter at jeg er
+              den rettmessige eieren av applikasjonen "TilKalender" (også kjent
+              som "ToCalendar"). Jeg har utviklet denne applikasjonen som
+              eneeier og innehar alle rettigheter til applikasjonens kode,
+              design og funksjonalitet.
+            </p>
+
+            <h4>Virksomhetsdetaljer:</h4>
+            <div class="business-details">
+              <div class="business-detail-item">
+                <strong>Virksomhetsnavn:</strong> TilKalender
+              </div>
+              <div class="business-detail-item">
+                <strong>Eier:</strong> Markus Haave Lund, tidligere Markus Lund
+                (Markus Lund|1342356535)
+              </div>
+              <div class="business-detail-item">
+                <strong>Type virksomhet:</strong> App-utvikling og programvare
+              </div>
+              <div class="business-detail-item">
+                <strong>Primær tjeneste:</strong> Filskanning og
+                kalenderhendelsegenerering for iOS
+              </div>
+            </div>
+          </div>
+
+          <div class="signature-block">
+            <h4>Signatur og Dato</h4>
+            <p>
+              <strong>Markus Haave Lund, tidligere Markus Lund</strong><br />
+              Eier og Utvikler av TilKalender
+            </p>
+            <p><em>Dato: 12. september 2025 | Sted: Norge</em></p>
+            <p>
+              <em
+                >Dette dokumentet bekrefter mitt eierskap til
+                TilKalender-applikasjonen og min rett til å distribuere den
+                gjennom Apple App Store.</em
               >
             </p>
           </div>
         </div>
-      </div>
 
-      <div class="ownership-section">
-        <h2>Eierskapsdokumentasjon</h2>
+        <div class="section">
+          <h2 class="section-title">📞 Support og Kontaktinformasjon</h2>
 
-        <div class="document-info">
-          <h3>Offisiell Erklæring om Eierskap</h3>
-          <p>Undertegnede bekrefter herved følgende:</p>
-
-          <ul>
-            <li><strong>Virksomhet/App:</strong> TilKalender (ToCalendar)</li>
-            <li>
-              <strong>Tilknytning:</strong> Eneeier og hovedutvikler av
-              TilKalender-applikasjonen
-            </li>
-          </ul>
-
-          <p>
-            Jeg, Markus Haave Lund, tidligere Markus Lund, bekrefter at jeg er
-            den rettmessige eieren av applikasjonen "TilKalender" (også kjent
-            som "ToCalendar"). Jeg har utviklet denne applikasjonen som eneeier
-            og innehar alle rettigheter til applikasjonens kode, design og
-            funksjonalitet.
-          </p>
-
-          <p><strong>Virksomhetsdetaljer:</strong></p>
-          <ul>
-            <li>Virksomhetsnavn: TilKalender</li>
-            <li>
-              Eier: Markus Haave Lund, tidligere Markus Lund (Markus
-              Lund|1342356535)
-            </li>
-            <li>Type virksomhet: App-utvikling og programvare</li>
-            <li>
-              Primær tjeneste: Filskanning og kalenderhendelsegenerering for iOS
-            </li>
-          </ul>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <strong>E-post Support</strong>
+              <p>
+                <a href="mailto:support@haavelund.no">support@haavelund.no</a>
+              </p>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">👨‍💻</div>
+              <strong>Utvikler</strong>
+              <p>Markus Haave Lund</p>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🌐</div>
+              <strong>Nettsted</strong>
+              <p><a href="https://haavelund.no">haavelund.no</a></p>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🔗</div>
+              <strong>Support URL</strong>
+              <p>
+                <a href="http://haavelund.no/ToCalendar"
+                  >haavelund.no/ToCalendar</a
+                >
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="signature-block">
-          <p><strong>Signatur og Dato:</strong></p>
-          <p>
-            Markus Haave Lund, tidligere Markus Lund<br />
-            Eier og Utvikler av TilKalender
-          </p>
+        <div class="faq-section">
+          <h2 class="section-title">❓ Ofte Stilte Spørsmål</h2>
 
-          <div class="date-stamp">
-            <p><strong>Dato:</strong> 12. september 2025</p>
-            <p><strong>Sted:</strong> Norge</p>
+          <div class="faq-item">
+            <div class="faq-question">Hvordan bruker jeg TilKalender?</div>
+            <div class="faq-answer">
+              TilKalender er en intelligent kalenderapp som skanner filene dine
+              og automatisk genererer kalenderhendelser som du sømløst kan legge
+              til i din Apple Kalender. Appen hjelper deg med å organisere
+              avtaler og oppgaver ved å trekke ut relevant informasjon fra
+              dokumentene dine.
+            </div>
           </div>
 
-          <p>
-            <em
-              >Dette dokumentet bekrefter mitt eierskap til
-              TilKalender-applikasjonen og min rett til å distribuere den
-              gjennom Apple App Store.</em
-            >
-          </p>
+          <div class="faq-item">
+            <div class="faq-question">Hvordan kontakter jeg support?</div>
+            <div class="faq-answer">
+              Du kan kontakte oss på support@haavelund.no for alle spørsmål
+              relatert til appen. Vi svarer normalt innen 24-48 timer.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Er mine data sikre?</div>
+            <div class="faq-answer">
+              Ja, vi tar personvern på alvor og følger alle gjeldende
+              retningslinjer for datasikkerhet og personvern.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Rapporter Problemer</div>
+            <div class="faq-answer">
+              Hvis du opplever tekniske problemer med appen, vennligst inkluder
+              følgende informasjon når du kontakter support:
+              <ul>
+                <li>iOS versjon</li>
+                <li>TilKalender app versjon</li>
+                <li>Beskrivelse av problemet</li>
+                <li>Trinn for å reprodusere problemet</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="contact-section">
-        <h2>Support og Kontaktinformasjon</h2>
-
-        <h3>Kontakt Support</h3>
+      <div class="footer">
         <p>
-          For spørsmål, problemer eller support relatert til TilKalender-appen,
-          vennligst kontakt oss:
-        </p>
-
-        <ul>
-          <li>
-            <strong>E-post:</strong>
-            <a href="mailto:support@haavelund.no">support@haavelund.no</a>
-          </li>
-          <li>
-            <strong>Utvikler:</strong> Markus Haave Lund, tidligere Markus Lund
-          </li>
-          <li>
-            <strong>Nettsted:</strong>
-            <a href="https://haavelund.no">haavelund.no</a>
-          </li>
-          <li>
-            <strong>Support URL:</strong>
-            <a href="http://haavelund.no/ToCalendar"
-              >http://haavelund.no/ToCalendar</a
-            >
-          </li>
-        </ul>
-
-        <h3>Ofte Stilte Spørsmål (FAQ)</h3>
-        <div class="document-info">
-          <h4>Hvordan bruker jeg TilKalender?</h4>
-          <p>
-            TilKalender er en intelligent kalenderapp som skanner filene dine og
-            automatisk genererer kalenderhendelser som du sømløst kan legge til
-            i din Apple Kalender. Appen hjelper deg med å organisere avtaler og
-            oppgaver ved å trekke ut relevant informasjon fra dokumentene dine.
-          </p>
-
-          <h4>Hvordan kontakter jeg support?</h4>
-          <p>
-            Du kan kontakte oss på support@haavelund.no for alle spørsmål
-            relatert til appen. Vi svarer normalt innen 24-48 timer.
-          </p>
-
-          <h4>Er mine data sikre?</h4>
-          <p>
-            Ja, vi tar personvern på alvor og følger alle gjeldende
-            retningslinjer for datasikkerhet og personvern.
-          </p>
-        </div>
-
-        <h3>Rapporter Problemer</h3>
-        <p>
-          Hvis du opplever tekniske problemer med appen, vennligst inkluder
-          følgende informasjon når du kontakter support:
-        </p>
-        <ul>
-          <li>iOS versjon</li>
-          <li>TilKalender app versjon</li>
-          <li>Beskrivelse av problemet</li>
-          <li>Trinn for å reprodusere problemet</li>
-        </ul>
-
-        <h3>Oppdateringer og Nyheter</h3>
-        <p>
-          Hold deg oppdatert på nye funksjoner og oppdateringer ved å følge oss
-          eller sjekke App Store for de nyeste versjonene av TilKalender.
-        </p>
-      </div>
-
-      <footer
-        style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #ddd"
-      >
-        <p style="text-align: center">
           <strong>TilKalender</strong><br />
           Utviklet av
           <a href="https://haavelund.no" target="_blank"
             >Markus Haave Lund, tidligere Markus Lund</a
           >
         </p>
-        <div class="date-stamp" style="text-align: center">
-          <p>Sist oppdatert: 12. september 2025</p>
-        </div>
-      </footer>
+        <p><em>Sist oppdatert: 12. september 2025</em></p>
+      </div>
     </div>
   </body>
 </html>
