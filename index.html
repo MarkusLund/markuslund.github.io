@@ -2,44 +2,65 @@
 <html lang="no">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ting og tang</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Ting og tang</h1>
-    </header>
-    <main>
-      <ul>
-        <li>
-          <a href="https://sfo.haavelund.no">SFO-tracker</a> - Hold oversikt over SFO-timer for halv plass
-        </li>
-        <li>
-          <a href="https://jolv.haavelund.no">Jolv</a> - Et nettbasert
-          terningspill laget mha GPT3.
-        </li>
-        <li>
-          <a href="https://pong.haavelund.no">PongGPT</a> - Et GPT4-skapt
-          nettbasert Pong-spill.
-        </li>
-        <li>
-          <a href="https://rbknytt.no">Rosenborg BK Nyhetsside</a> - En
-          nyhetsside for Rosenborg BK.
-        </li>
-        <li>
-          <a href="TilKalender.html">TilKalender Support</a> - Support og
-          eierskapsdokumentasjon for TilKalender iOS-app. (<a
-            href="ToCalendar.html"
-            >English</a
-          >)
-        </li>
-      </ul>
-    </main>
-    <footer>
-      <p>
-        Laget av
-        <a href="https://haavelund.no" target="_blank">Markus Haave Lund</a>
-      </p>
-    </footer>
+    <div class="container">
+      <header>
+        <h1>Ting og tang</h1>
+        <p class="subtitle">Prosjekter og eksperimenter</p>
+      </header>
+
+      <main>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h2>
+              <a href="https://sfo.haavelund.no" target="_blank" rel="noopener noreferrer">SFO-tracker</a>
+            </h2>
+            <p>Hold oversikt over SFO-timer for halv plass</p>
+          </article>
+
+          <article class="project-card">
+            <h2>
+              <a href="https://jolv.haavelund.no" target="_blank" rel="noopener noreferrer">Jolv</a>
+            </h2>
+            <p>Et nettbasert terningspill laget mha GPT3.</p>
+          </article>
+
+          <article class="project-card">
+            <h2>
+              <a href="https://pong.haavelund.no" target="_blank" rel="noopener noreferrer">PongGPT</a>
+            </h2>
+            <p>Et GPT4-skapt nettbasert Pong-spill.</p>
+          </article>
+
+          <article class="project-card">
+            <h2>
+              <a href="https://rbknytt.no" target="_blank" rel="noopener noreferrer">Rosenborg BK Nyhetsside</a>
+            </h2>
+            <p>En nyhetsside for Rosenborg BK.</p>
+          </article>
+
+          <article class="project-card">
+            <h2>
+              <a href="TilKalender.html">TilKalender Support</a>
+            </h2>
+            <p>
+              Support og eierskapsdokumentasjon for TilKalender iOS-app.
+              <a href="ToCalendar.html" class="secondary-link">English</a>
+            </p>
+          </article>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          Laget av
+          <a href="https://haavelund.no" target="_blank" rel="noopener noreferrer">Markus Haave Lund</a>
+        </p>
+      </footer>
+    </div>
   </body>
 </html>
