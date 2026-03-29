@@ -17,6 +17,40 @@
         <div class="header-accent"></div>
       </header>
 
+      <section class="hero-slideshow" aria-label="Utvalgte prosjekter">
+        <div class="slideshow-track">
+          <a href="https://rbknytt.no" target="_blank" rel="noopener noreferrer" class="slide">
+            <img src="screenshots/rbknytt.jpg" alt="RBKNytt.no" />
+            <div class="slide-overlay">
+              <h2>RBKNytt.no</h2>
+              <p>En nyhetsside for Rosenborg BK</p>
+            </div>
+          </a>
+          <a href="https://nerdenytt.no" target="_blank" rel="noopener noreferrer" class="slide">
+            <img src="screenshots/nerdenytt.jpg" alt="NerdeNytt.no" />
+            <div class="slide-overlay">
+              <h2>NerdeNytt.no</h2>
+              <p>Norske spillnyheter samlet p&aring; ett sted</p>
+            </div>
+          </a>
+          <a href="https://fortelle.app" target="_blank" rel="noopener noreferrer" class="slide">
+            <img src="screenshots/fortelle.jpg" alt="Fortelle" style="--obj-pos: center center" />
+            <div class="slide-overlay">
+              <h2>Fortelle</h2>
+              <p>AI-drevet norsk eventyrfortelling</p>
+            </div>
+          </a>
+          <a href="https://aissue.haavelund.no" target="_blank" rel="noopener noreferrer" class="slide">
+            <img src="screenshots/aissue.jpg" alt="AIssue" style="--obj-pos: center center" />
+            <div class="slide-overlay">
+              <h2>AIssue</h2>
+              <p>AI-drevet GitHub issue-h&aring;ndtering</p>
+            </div>
+          </a>
+        </div>
+        <div class="slideshow-dots"></div>
+      </section>
+
       <main>
         <section class="project-section">
           <div class="section-header">
@@ -86,7 +120,7 @@
               </div>
             </a>
 
-            <a href="https://fortelle-markus-lunds-projects.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 1">
+            <a href="https://fortelle.app" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 1">
               <div class="card-img">
                 <img src="screenshots/fortelle.jpg" alt="Fortelle" loading="lazy" style="--obj-pos: center center" />
               </div>
@@ -266,6 +300,7 @@
     </div>
 
     <script>
+      // Scroll reveal
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -277,6 +312,51 @@
 
       document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
       document.querySelectorAll('.section-header').forEach(h => observer.observe(h));
+
+      // Slideshow
+      (() => {
+        const track = document.querySelector('.slideshow-track');
+        const slides = [...track.children];
+        const dotsContainer = document.querySelector('.slideshow-dots');
+        let current = 0;
+        let timer;
+
+        // Shuffle slides randomly
+        for (let i = slides.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          track.appendChild(slides[j]);
+          [slides[i], slides[j]] = [slides[j], slides[i]];
+        }
+
+        // Create dots
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Vis prosjekt ' + (i + 1));
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
+        });
+
+        const dots = [...dotsContainer.children];
+
+        function goTo(index) {
+          current = index;
+          slides.forEach((s, i) => s.classList.toggle('active', i === current));
+          dots.forEach((d, i) => d.classList.toggle('active', i === current));
+          resetTimer();
+        }
+
+        function next() {
+          goTo((current + 1) % slides.length);
+        }
+
+        function resetTimer() {
+          clearInterval(timer);
+          timer = setInterval(next, 5000);
+        }
+
+        goTo(0);
+      })();
     </script>
   </body>
 </html>
