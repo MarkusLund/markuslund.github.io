@@ -6,130 +6,277 @@
     <title>Ting og tang</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>Ting og tang</h1>
-        <p class="subtitle">Prosjekter og eksperimenter</p>
-        <div class="header-rule"></div>
+        <p class="tagline">Prosjekter og eksperimenter av</p>
+        <h1>Markus Haave Lund</h1>
+        <div class="header-accent"></div>
       </header>
 
       <main>
         <section class="project-section">
           <div class="section-header">
-            <h2 class="section-title">Spill</h2>
-            <p class="section-description">Nettbaserte spill</p>
+            <div>
+              <h2 class="section-title">Spill</h2>
+              <p class="section-description">Nettbaserte spill</p>
+            </div>
           </div>
           <div class="projects-grid">
             <a href="https://jolv.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 0">
-              <h3>Jolv</h3>
-              <p>Et nettbasert terningspill laget mha GPT3</p>
+              <div class="card-img">
+                <img src="screenshots/jolv.jpg" alt="Jolv" loading="lazy" style="--obj-pos: center center" />
+              </div>
+              <div class="card-body">
+                <h3>Jolv<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Et nettbasert terningspill laget mha GPT3</p>
+              </div>
             </a>
 
             <a href="https://pong.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 1">
-              <h3>PongGPT</h3>
-              <p>Et GPT4-skapt nettbasert Pong-spill</p>
+              <div class="card-img card-img--placeholder" style="--ph-hue: 200">
+                <span class="placeholder-label">PongGPT</span>
+              </div>
+              <div class="card-body">
+                <h3>PongGPT<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Et GPT4-skapt nettbasert Pong-spill</p>
+              </div>
             </a>
 
             <a href="https://ordel.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 2">
-              <h3>Ordel</h3>
-              <p>Norsk Wordle — gjett dagens ord på 6 forsøk</p>
+              <div class="card-img">
+                <img src="screenshots/ordel.jpg" alt="Ordel" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <h3>Ordel<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Norsk Wordle &mdash; gjett dagens ord p&aring; 6 fors&oslash;k</p>
+              </div>
             </a>
 
             <a href="https://astronaut.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 3">
-              <h3>Astronaut</h3>
-              <p>Romlandingsspill med tilt- og tastaturkontroller</p>
+              <div class="card-img">
+                <img src="screenshots/astronaut.jpg" alt="Astronaut" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <h3>Astronaut<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Romlandingsspill med tilt- og tastaturkontroller</p>
+              </div>
             </a>
           </div>
         </section>
 
         <section class="project-section">
           <div class="section-header">
-            <h2 class="section-title">Apper</h2>
-            <p class="section-description">Nettbaserte verktøy og apper</p>
+            <div>
+              <h2 class="section-title">Apper</h2>
+              <p class="section-description">Nettbaserte verkt&oslash;y og apper</p>
+            </div>
           </div>
           <div class="projects-grid">
             <a href="https://sfo.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 0">
-              <h3>SFO-tracker</h3>
-              <p>Hold oversikt over SFO-timer for halv plass</p>
+              <div class="card-img">
+                <img src="screenshots/sfo.jpg" alt="SFO-tracker" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <h3>SFO-tracker<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Hold oversikt over SFO-timer for halv plass</p>
+              </div>
             </a>
 
             <a href="https://fortelle-markus-lunds-projects.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 1">
-              <h3>Fortelle</h3>
-              <p>AI-drevet norsk eventyrfortelling</p>
+              <div class="card-img">
+                <img src="screenshots/fortelle.jpg" alt="Fortelle" loading="lazy" style="--obj-pos: center center" />
+              </div>
+              <div class="card-body">
+                <h3>Fortelle<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>AI-drevet norsk eventyrfortelling</p>
+              </div>
             </a>
 
             <a href="https://matte.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 2">
-              <h3>Matte</h3>
-              <p>Matteoppgavegenerator for barn</p>
+              <div class="card-img">
+                <img src="screenshots/matte.jpg" alt="Matte" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <h3>Matte<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Matteoppgavegenerator for barn</p>
+              </div>
             </a>
 
             <a href="https://sausank.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 3">
-              <h3>SauSank</h3>
-              <p>Sanntidssporing av sau med Telespor GPS</p>
+              <div class="card-img">
+                <img src="screenshots/sausank.jpg" alt="SauSank" loading="lazy" style="--obj-pos: center center" />
+              </div>
+              <div class="card-body">
+                <h3>SauSank<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Sanntidssporing av sau med Telespor GPS</p>
+              </div>
             </a>
 
             <a href="https://rbknytt.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 4">
-              <h3>RBKNytt.no</h3>
-              <p>En nyhetsside for Rosenborg BK</p>
+              <div class="card-img">
+                <img src="screenshots/rbknytt.jpg" alt="RBKNytt" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <h3>RBKNytt.no<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>En nyhetsside for Rosenborg BK</p>
+              </div>
+            </a>
+
+            <a href="https://nerdenytt.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 5">
+              <div class="card-img">
+                <img src="screenshots/nerdenytt.jpg" alt="NerdeNytt" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <h3>NerdeNytt.no<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Norske spillnyheter samlet p&aring; ett sted</p>
+              </div>
+            </a>
+
+            <a href="https://aissue.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 6">
+              <div class="card-img">
+                <img src="screenshots/aissue.jpg" alt="AIssue" loading="lazy" style="--obj-pos: center center" />
+              </div>
+              <div class="card-body">
+                <h3>AIssue<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>AI-drevet GitHub issue-h&aring;ndtering med semantisk s&oslash;k</p>
+              </div>
+            </a>
+
+            <a href="https://haavelund.no/dotmysvg/" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 7">
+              <div class="card-img">
+                <img src="screenshots/dotmysvg.jpg" alt="SVG Dot Editor" loading="lazy" style="--obj-pos: center center" />
+              </div>
+              <div class="card-body">
+                <h3>SVG Dot Editor<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Legg til dot-indikatorer p&aring; SVG-ikoner</p>
+              </div>
             </a>
           </div>
         </section>
 
         <section class="project-section">
           <div class="section-header">
-            <h2 class="section-title">Verktøy & Utvidelser</h2>
-            <p class="section-description">CLI-verktøy og nettleserutvidelser</p>
+            <div>
+              <h2 class="section-title">Verkt&oslash;y &amp; Utvidelser</h2>
+              <p class="section-description">CLI-verkt&oslash;y og nettleserutvidelser</p>
+            </div>
           </div>
           <div class="projects-grid">
             <a href="https://github.com/markuslund/aidebate" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 0">
-              <h3>AI Debate</h3>
-              <p>npm CLI der to AI-agenter debatterer for å løse problemer</p>
+              <div class="card-img card-img--placeholder" style="--ph-hue: 250">
+                <span class="placeholder-label">AI Debate</span>
+                <span class="placeholder-tag">npm</span>
+              </div>
+              <div class="card-body">
+                <h3>AI Debate<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>npm CLI der to AI-agenter debatterer for &aring; l&oslash;se problemer</p>
+              </div>
             </a>
 
             <a href="https://github.com/markuslund/copyfc" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 1">
-              <h3>copyfc</h3>
-              <p>VS Code-utvidelse for kopiering av filinnhold med sti</p>
+              <div class="card-img card-img--placeholder" style="--ph-hue: 210">
+                <span class="placeholder-label">copyfc</span>
+                <span class="placeholder-tag">VS Code</span>
+              </div>
+              <div class="card-body">
+                <h3>copyfc<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>VS Code-utvidelse for kopiering av filinnhold med sti</p>
+              </div>
             </a>
 
             <a href="https://github.com/markuslund/video-playback-speed" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 2">
-              <h3>video-playback-speed</h3>
-              <p>Chrome-utvidelse for avspillingshastighet på YouTube/NRK</p>
+              <div class="card-img card-img--placeholder" style="--ph-hue: 0">
+                <span class="placeholder-label">Playback Speed</span>
+                <span class="placeholder-tag">Chrome</span>
+              </div>
+              <div class="card-body">
+                <h3>video-playback-speed<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Chrome-utvidelse for avspillingshastighet p&aring; YouTube/NRK</p>
+              </div>
+            </a>
+
+            <a href="https://github.com/markuslund/chrome-console-copy" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 3">
+              <div class="card-img card-img--placeholder" style="--ph-hue: 160">
+                <span class="placeholder-label">Console Copy</span>
+                <span class="placeholder-tag">Chrome</span>
+              </div>
+              <div class="card-body">
+                <h3>Console Copy<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>Chrome-utvidelse for kopiering av konsolloutput uten stack traces</p>
+              </div>
+            </a>
+
+            <a href="https://github.com/markuslund/claudesessionstarter" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 4">
+              <div class="card-img card-img--placeholder" style="--ph-hue: 30">
+                <span class="placeholder-label">Session Starter</span>
+                <span class="placeholder-tag">GitHub Actions</span>
+              </div>
+              <div class="card-body">
+                <h3>claudesessionstarter<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>GitHub Actions-mal for &aring; kj&oslash;re Claude Code p&aring; cron-schedule</p>
+              </div>
             </a>
           </div>
         </section>
 
         <section class="project-section">
           <div class="section-header">
-            <h2 class="section-title">iOS-apper</h2>
-            <p class="section-description">Mobilapper for iPhone og iPad</p>
+            <div>
+              <h2 class="section-title">iOS-apper</h2>
+              <p class="section-description">Mobilapper for iPhone og iPad</p>
+            </div>
           </div>
           <div class="projects-grid">
-            <div class="project-card" style="--i: 0" onclick="window.location='TilKalender.html'" role="link" tabindex="0" onkeydown="if(event.key==='Enter')window.location='TilKalender.html'">
-              <h3>TilKalender</h3>
-              <p>
-                iOS-app for skanning og kalenderhendelser
-                <a href="ToCalendar.html" class="secondary-link" onclick="event.stopPropagation()">English</a>
-              </p>
-            </div>
+            <a href="TilKalender.html" class="project-card" style="--i: 0">
+              <div class="card-img card-img--placeholder" style="--ph-hue: 270">
+                <span class="placeholder-label">TilKalender</span>
+                <span class="placeholder-tag">iOS</span>
+              </div>
+              <div class="card-body">
+                <h3>TilKalender<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>iOS-app for skanning og kalenderhendelser</p>
+              </div>
+            </a>
 
             <a href="bremselengder-privacy.html" class="project-card" style="--i: 1">
-              <h3>Bremselengder</h3>
-              <p>iOS-app for beregning av bremselengder</p>
+              <div class="card-img card-img--placeholder" style="--ph-hue: 340">
+                <span class="placeholder-label">Bremselengder</span>
+                <span class="placeholder-tag">iOS</span>
+              </div>
+              <div class="card-body">
+                <h3>Bremselengder<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></h3>
+                <p>iOS-app for beregning av bremselengder</p>
+              </div>
             </a>
           </div>
         </section>
       </main>
 
       <footer>
+        <div class="footer-rule"></div>
         <p>
           Laget av
           <a href="https://haavelund.no" target="_blank" rel="noopener noreferrer">Markus Haave Lund</a>
         </p>
       </footer>
     </div>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
+      document.querySelectorAll('.section-header').forEach(h => observer.observe(h));
+    </script>
   </body>
 </html>
