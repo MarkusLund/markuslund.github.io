@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personvernerklæring - VG Profeten Tipsstatistikk</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .privacy-content {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .privacy-content h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-text);
+      }
+      .privacy-content p,
+      .privacy-content ul {
+        color: var(--color-text-muted);
+        margin-bottom: var(--spacing-sm);
+      }
+      .privacy-content ul {
+        padding-left: var(--spacing-md);
+      }
+      .privacy-content li {
+        margin-bottom: var(--spacing-xs);
+      }
+      .back-link {
+        display: inline-block;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-accent);
+        text-decoration: none;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+      .last-updated {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        margin-top: var(--spacing-lg);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid var(--color-border);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>VG Profeten – Tipsstatistikk</h1>
+        <p class="subtitle">Personvernerklæring</p>
+      </header>
+
+      <main>
+        <div class="privacy-content">
+          <a href="index.html" class="back-link">&larr; Tilbake til forsiden</a>
+
+          <h2>Introduksjon</h2>
+          <p>
+            VG Profeten – Tipsstatistikk er en nettleserutvidelse som viser en
+            samlet tipsoversikt og statistikk på VG Profeten sine ligasider
+            (<code>vglive.vg.no/profeten/*</code>). Denne personvernerklæringen
+            beskriver hvordan utvidelsen håndterer informasjon.
+          </p>
+
+          <h2>Datainnsamling</h2>
+          <p>
+            <strong>Utvidelsen samler ikke inn noen personopplysninger, og
+            sender ingenting til utvikleren eller noen tredjepart.</strong>
+          </p>
+          <p>
+            All databehandling skjer lokalt i din egen nettleser.
+          </p>
+
+          <h2>Hvilke data behandles, og hvor</h2>
+          <ul>
+            <li>
+              <strong>Tipsdata fra VG:</strong> Utvidelsen henter kampprogram,
+              ligastilling og medlemmenes tips fra VGs eget API
+              (<code>vglive.vg.no</code>) – nøyaktig de samme dataene som
+              allerede vises i VG Profeten når du er innlogget. Dataene hentes
+              på forespørsel og vises kun i fanen din. De lagres ikke utenfor
+              nettleseren og deles ikke videre.
+            </li>
+            <li>
+              <strong>Innloggings-token:</strong> For å hente tipsdata på dine
+              vegne leser utvidelsen det midlertidige tilgangs-tokenet som
+              VG-siden selv bruker, fra nettleserens egne forespørsler. Tokenet
+              holdes kun i minnet i den aktive fanen, sendes bare til
+              <code>vglive.vg.no</code> (samme tjeneste som utstedte det), og
+              lagres aldri permanent.
+            </li>
+            <li>
+              <strong>Favoritter:</strong> Navn du markerer som favoritt lagres
+              lokalt i nettleseren din (<code>localStorage</code> på
+              <code>vglive.vg.no</code>). Listen forlater aldri nettleseren din.
+            </li>
+          </ul>
+
+          <h2>Tredjepartstjenester</h2>
+          <p>
+            Utvidelsen bruker ingen tredjepartstjenester for analyse,
+            annonsering eller sporing. Det finnes ingen servere knyttet til
+            utvidelsen.
+          </p>
+
+          <h2>Tilgang</h2>
+          <p>
+            Utvidelsen kjører kun på <code>https://vglive.vg.no/profeten/*</code>
+            og har ingen tilgang til andre nettsteder eller faner.
+          </p>
+
+          <h2>Barns personvern</h2>
+          <p>
+            Utvidelsen samler ikke inn informasjon fra noen brukere, inkludert
+            barn under 13 år.
+          </p>
+
+          <h2>Endringer i personvernerklæringen</h2>
+          <p>
+            Eventuelle endringer i denne personvernerklæringen vil bli publisert
+            på denne siden.
+          </p>
+
+          <h2>Kontakt</h2>
+          <p>
+            Hvis du har spørsmål om denne personvernerklæringen, kan du kontakte
+            utvikleren på
+            <a href="mailto:markus@haavelund.no">markus@haavelund.no</a>.
+          </p>
+
+          <p class="last-updated">Sist oppdatert: 29. juni 2026</p>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          Laget av
+          <a href="https://haavelund.no" target="_blank" rel="noopener noreferrer">Markus Haave Lund</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
