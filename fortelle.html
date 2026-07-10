@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortelle — Lag fortellinger og eventyr for barn</title>
+    <meta name="description" content="Fortelle skaper personlige fortellinger og eventyr for barn 4–12 år, med illustrasjoner og lydhistorier. Barnet er helten. Prøv gratis på fortelle.app." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --page-accent: #5e40dc;
+        --page-accent-soft: rgba(94, 64, 220, 0.09);
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: 0.8125rem;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        text-decoration: none;
+        margin-bottom: 2.5rem;
+        transition: color 0.25s ease;
+      }
+      .back-link:hover { color: var(--page-accent); }
+
+      .product-hero { margin-bottom: 3rem; }
+      .product-hero .tagline { color: var(--page-accent); }
+      .product-hero h1 { margin-bottom: 1rem; }
+      .product-hero .lead {
+        max-width: 42rem;
+        font-size: 1.0625rem;
+        font-weight: 300;
+        color: var(--color-text);
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 0.9375rem;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 100px;
+        transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), background 0.3s ease;
+      }
+      .btn-primary {
+        background: var(--page-accent);
+        color: #fff;
+        box-shadow: 0 2px 12px rgba(94, 64, 220, 0.35);
+      }
+      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(94, 64, 220, 0.45); }
+      .btn-secondary {
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
+        background: var(--color-card-bg);
+      }
+      .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 4px 14px var(--color-shadow-hover); }
+      .cta-note { font-size: 0.8125rem; color: var(--color-text-muted); font-weight: 300; }
+
+      .hero-image {
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 4px 24px var(--color-shadow-hover);
+        margin-bottom: 4rem;
+      }
+      .hero-image img { width: 100%; display: block; }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      @media (min-width: 560px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 960px) { .feature-grid { grid-template-columns: repeat(3, 1fr); } }
+
+      .feature {
+        background: var(--color-card-bg);
+        border-radius: var(--radius);
+        padding: 1.5rem 1.5rem 1.375rem;
+        box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+      }
+      .feature .emoji {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+        background: var(--page-accent-soft);
+        border-radius: 10px;
+        margin-bottom: 0.875rem;
+      }
+      .feature h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.3;
+      }
+      .feature p {
+        color: var(--color-text-muted);
+        font-size: 0.8125rem;
+        font-weight: 300;
+        line-height: 1.55;
+        margin-top: 0.375rem;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        counter-reset: step;
+      }
+      @media (min-width: 700px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+      .step {
+        position: relative;
+        padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+        border-left: 3px solid var(--page-accent);
+        background: var(--color-card-bg);
+        border-radius: var(--radius);
+        box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+      }
+      .step::before {
+        counter-increment: step;
+        content: counter(step);
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 2rem;
+        line-height: 1;
+        color: var(--page-accent);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .step h3 { font-family: var(--font-display); font-size: 1.1875rem; font-weight: 400; }
+      .step p { color: var(--color-text-muted); font-size: 0.8125rem; font-weight: 300; margin-top: 0.25rem; }
+
+      .pull-quote {
+        max-width: 46rem;
+        margin: 0 auto;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      .pull-quote blockquote {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1.5rem;
+        line-height: 1.45;
+        color: var(--color-text);
+      }
+      @media (min-width: 700px) { .pull-quote blockquote { font-size: 1.75rem; } }
+      .pull-quote cite {
+        display: block;
+        font-family: var(--font-body);
+        font-style: normal;
+        font-size: 0.8125rem;
+        color: var(--color-text-muted);
+        margin-top: 1rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .cta-panel {
+        text-align: center;
+        background: var(--color-card-bg);
+        border-radius: var(--radius);
+        box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+        padding: 3rem 1.5rem;
+      }
+      .cta-panel h2 {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      .cta-panel p {
+        color: var(--color-text-muted);
+        font-weight: 300;
+        font-size: 0.9375rem;
+        max-width: 34rem;
+        margin: 0 auto;
+      }
+      .cta-panel .cta-row { justify-content: center; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header style="margin-bottom: 0; padding-top: 2rem;">
+        <a href="index.html" class="back-link">&larr; haavelund.no</a>
+      </header>
+
+      <main>
+        <section class="product-hero">
+          <p class="tagline">Fortelle.app &mdash; for barn 4&ndash;12 &aring;r</p>
+          <h1>Fortelle</h1>
+          <p class="lead">
+            Lag fortellinger og eventyr for barn &mdash; der barnet selv er helten.
+            Velg karakter, kategori og utfordring, s&aring; skaper Fortelle en unik fortelling
+            med illustrasjoner laget for akkurat den historien. M&aring;let er enkelt:
+            &aring; gj&oslash;re lesestunden til favorittstunden og vekke ekte leselyst.
+          </p>
+          <div class="cta-row">
+            <a href="https://fortelle.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Skap din f&oslash;rste fortelling</a>
+            <a href="https://fortelle.app/utforsk" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Utforsk delte historier</a>
+            <span class="cta-note">Det koster ingenting &aring; pr&oslash;ve</span>
+          </div>
+        </section>
+
+        <div class="hero-image">
+          <img src="screenshots/fortelle/hero.jpg" alt="Illustrasjon av to barn som ser eventyrfigurer stige opp fra en åpen bok" />
+        </div>
+
+        <section class="project-section">
+          <div class="section-header revealed">
+            <h2 class="section-title">Slik fungerer det</h2>
+            <p class="section-description">Fra id&eacute; til ferdig fortelling p&aring; sekunder</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <h3>Velg karakter</h3>
+              <p>Hvem handler fortellingen om? Barnet selv, en drage som er redd for h&oslash;yder, eller en robot som l&aelig;rte &aring; dr&oslash;mme &mdash; kun fantasien setter grenser.</p>
+            </div>
+            <div class="step">
+              <h3>Velg kategori og vri</h3>
+              <p>Sett sjanger og en liten utfordring, s&aring; skriver Fortelle en historie i fem deler &mdash; med illustrasjoner som f&oslash;lger karakteren gjennom hele fortellingen.</p>
+            </div>
+            <div class="step">
+              <h3>Les, lytt og samle</h3>
+              <p>Les selv, h&oslash;r historien som lydhistorie med flere stemmer, og samle medaljer p&aring; Lesestien etter hvert som luftballongen stiger.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="section-header revealed">
+            <h2 class="section-title">Hva kan Fortelle?</h2>
+            <p class="section-description">Personlige barneb&oslash;ker &mdash; laget p&aring; sekunder</p>
+          </div>
+          <div class="feature-grid">
+            <div class="feature">
+              <span class="emoji">&#128118;</span>
+              <h3>Barnet er helten</h3>
+              <p>Hver historie er en personlig barnebok med karakterer barna kjenner seg igjen i. N&aring;r barnet er helten, blir motivasjonen til &aring; lese videre helt naturlig.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#127912;</span>
+              <h3>Unike illustrasjoner</h3>
+              <p>Hver del av historien f&aring;r sin egen illustrasjon, og karakteren ser lik ut hele veien. Velg mellom stiler som 3D-animasjon, anime, blyanttegning, leire og pixel.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#127911;</span>
+              <h3>Lydhistorier</h3>
+              <p>H&oslash;r fortellingen som et lite h&oslash;respill &mdash; hver karakter f&aring;r sin egen stemme, med justerbar avspillingshastighet og tekst p&aring; skjermen.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128214;</span>
+              <h3>Tilpasset leseniv&aring;</h3>
+              <p>Seks leseniv&aring;er &mdash; fra &laquo;Mine f&oslash;rste ord&raquo; til &laquo;Mesterleser&raquo; &mdash; s&aring; barn kan &oslash;ve seg p&aring; &aring; lese i sitt eget tempo.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128106;</span>
+              <h3>Profiler for hele familien</h3>
+              <p>Flere barneprofiler per husstand, hver med eget leseniv&aring;, avatar og historiesamling &mdash; pluss egne kjæledyr du designer selv.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#127880;</span>
+              <h3>Lesestien</h3>
+              <p>Luftballongen stiger for hver historie som leses. Medaljer, niv&aring;er og lesestreker gj&oslash;r lesing til et eventyr i seg selv.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128218;</span>
+              <h3>Ditt eget bibliotek</h3>
+              <p>Lagre, fortsett og les favorittene om igjen &mdash; eller last ned historien som PDF og skriv den ut som en ekte liten bok.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#127758;</span>
+              <h3>Velg spr&aring;k</h3>
+              <p>Fortellingen kan skrives p&aring; flere spr&aring;k &mdash; perfekt for &aring; &oslash;ve p&aring; et nytt spr&aring;k med en historie barnet allerede er investert i.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128274;</span>
+              <h3>Personvern f&oslash;rst</h3>
+              <p>Data lagres i EU, uten sporingsinformasjonskapsler, og AI-leverand&oslash;rene f&aring;r ikke trene p&aring; det du skriver.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="pull-quote">
+            <blockquote>
+              &laquo;Fortelle startet ved kj&oslash;kkenbordet. Markus sin s&oslash;nn l&aelig;rte &aring; lese allerede som fire&aring;ring,
+              drevet av lysten til &aring; vite hva som skjedde videre i sin egen historie.&raquo;
+            </blockquote>
+            <cite>Historien bak Fortelle</cite>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="cta-panel">
+            <h2>Klar for lesestunden?</h2>
+            <p>Velg en karakter, en sjanger og en liten vri, s&aring; skaper Fortelle den f&oslash;rste historien p&aring; sekunder. Det koster ingenting &aring; pr&oslash;ve.</p>
+            <div class="cta-row">
+              <a href="https://fortelle.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Pr&oslash;v Fortelle gratis</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-rule"></div>
+        <p>
+          Laget av
+          <a href="index.html">Markus Haave Lund</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

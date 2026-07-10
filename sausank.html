@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SauSank — GPS-kart som virker i marka</title>
+    <meta name="description" content="SauSank er GPS-kart og posisjonsdeling for sauesanking, bygget for marka. Se sauene live på kartet med Telespor, del posisjon med letelaget, og bruk offline kart og peiling helt uten dekning. Gratis på sausank.no og i App Store." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --page-accent: #1f7a43;
+        --page-accent-soft: rgba(31, 122, 67, 0.09);
+        --page-blue: #208aef;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: 0.8125rem;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        text-decoration: none;
+        margin-bottom: 2.5rem;
+        transition: color 0.25s ease;
+      }
+      .back-link:hover { color: var(--page-accent); }
+
+      .product-hero { margin-bottom: 3.5rem; }
+      .product-hero .tagline { color: var(--page-accent); }
+      .product-hero h1 { margin-bottom: 1rem; }
+      .product-hero .lead {
+        max-width: 42rem;
+        font-size: 1.0625rem;
+        font-weight: 300;
+        color: var(--color-text);
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 0.9375rem;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 100px;
+        transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+      }
+      .btn-primary {
+        background: var(--page-accent);
+        color: #fff;
+        box-shadow: 0 2px 12px rgba(31, 122, 67, 0.35);
+      }
+      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(31, 122, 67, 0.45); }
+      .btn-dark {
+        background: #1c1917;
+        color: #fff;
+      }
+      .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--color-shadow-hover); }
+      .btn-dark svg { width: 18px; height: 18px; }
+      .cta-note { font-size: 0.8125rem; color: var(--color-text-muted); font-weight: 300; }
+
+      /* Phone screenshot gallery */
+      .phone-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      @media (min-width: 700px) { .phone-grid { grid-template-columns: repeat(4, 1fr); } }
+
+      .phone-shot {
+        background: var(--color-card-bg);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+      }
+      .phone-shot img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 1320 / 2868;
+        object-fit: cover;
+      }
+      .phone-shot figcaption {
+        padding: 0.875rem 1rem 1rem;
+      }
+      .phone-shot figcaption strong {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 1.0625rem;
+        font-weight: 400;
+        line-height: 1.3;
+      }
+      .phone-shot figcaption span {
+        display: block;
+        color: var(--color-text-muted);
+        font-size: 0.75rem;
+        font-weight: 300;
+        line-height: 1.5;
+        margin-top: 0.25rem;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      @media (min-width: 560px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 960px) { .feature-grid { grid-template-columns: repeat(3, 1fr); } }
+
+      .feature {
+        background: var(--color-card-bg);
+        border-radius: var(--radius);
+        padding: 1.5rem 1.5rem 1.375rem;
+        box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+      }
+      .feature .emoji {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+        background: var(--page-accent-soft);
+        border-radius: 10px;
+        margin-bottom: 0.875rem;
+      }
+      .feature h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.3;
+      }
+      .feature p {
+        color: var(--color-text-muted);
+        font-size: 0.8125rem;
+        font-weight: 300;
+        line-height: 1.55;
+        margin-top: 0.375rem;
+      }
+
+      /* Age legend */
+      .age-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.625rem;
+        margin-top: 0.75rem;
+      }
+      .age-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: var(--color-text-muted);
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: 100px;
+        padding: 0.25rem 0.75rem;
+      }
+      .age-dot { width: 9px; height: 9px; border-radius: 50%; }
+
+      .cta-panel {
+        text-align: center;
+        background: var(--color-card-bg);
+        border-radius: var(--radius);
+        box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+        padding: 3rem 1.5rem;
+      }
+      .cta-panel h2 {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      .cta-panel p {
+        color: var(--color-text-muted);
+        font-weight: 300;
+        font-size: 0.9375rem;
+        max-width: 36rem;
+        margin: 0 auto;
+      }
+      .cta-panel .cta-row { justify-content: center; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header style="margin-bottom: 0; padding-top: 2rem;">
+        <a href="index.html" class="back-link">&larr; haavelund.no</a>
+      </header>
+
+      <main>
+        <section class="product-hero">
+          <p class="tagline">SauSank &mdash; for nettleser og iOS</p>
+          <h1>SauSank</h1>
+          <p class="lead">
+            GPS-kart og posisjonsdeling for sauesanking, bygget for marka.
+            Se sanntidsposisjoner fra Telespor GPS-bjeller rett p&aring; Kartverkets topografiske kart,
+            del posisjon med hele letelaget &mdash; og finn sauen med peiling og offline kart,
+            helt uten dekning.
+          </p>
+          <div class="cta-row">
+            <a href="https://sausank.no" target="_blank" rel="noopener noreferrer" class="btn btn-primary">&Aring;pne SauSank i nettleseren</a>
+            <a href="https://apps.apple.com/no/app/sausank/id6782464052" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              Last ned fra App Store
+            </a>
+            <span class="cta-note">Krever Telespor-konto med GPS-bjeller</span>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="section-header revealed">
+            <h2 class="section-title">Bygget for h&oslash;stsankinga</h2>
+            <p class="section-description">iOS-appen &mdash; laget for fjellet, ikke for kontoret</p>
+          </div>
+          <div class="phone-grid">
+            <figure class="phone-shot">
+              <img src="screenshots/sausank/01_kart.jpg" alt="SauSank-appen med sauer og letelag live på topografisk kart" loading="lazy" />
+              <figcaption>
+                <strong>Alle sauene. Live p&aring; kartet.</strong>
+                <span>Sanntidsposisjoner fra Telespor, rett p&aring; kartet</span>
+              </figcaption>
+            </figure>
+            <figure class="phone-shot">
+              <img src="screenshots/sausank/08_peiling.jpg" alt="Peiling i SauSank: pil med retning og avstand til sauen" loading="lazy" />
+              <figcaption>
+                <strong>F&oslash;lg pila. Finn sauen.</strong>
+                <span>Retning og avstand fra der du st&aring;r &mdash; helt uten dekning</span>
+              </figcaption>
+            </figure>
+            <figure class="phone-shot">
+              <img src="screenshots/sausank/06_offline_kart.jpg" alt="Nedlasting av offline kartområder i SauSank" loading="lazy" />
+              <figcaption>
+                <strong>Kart som virker i marka.</strong>
+                <span>Last ned kartet p&aring; forh&aring;nd &mdash; bruk det uten dekning</span>
+              </figcaption>
+            </figure>
+            <figure class="phone-shot">
+              <img src="screenshots/sausank/02_alarmer.jpg" alt="Varsler i SauSank for lavt batteri og mistet kontakt" loading="lazy" />
+              <figcaption>
+                <strong>Varsler n&aring;r noe er galt.</strong>
+                <span>Lavt batteri, mistet kontakt eller ingen bevegelse</span>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="section-header revealed">
+            <h2 class="section-title">Hva kan SauSank?</h2>
+            <p class="section-description">Full oversikt for deg og hele letelaget</p>
+          </div>
+          <div class="feature-grid">
+            <div class="feature">
+              <span class="emoji">&#128017;</span>
+              <h3>Sauene live p&aring; kartet</h3>
+              <p>Sanntidsposisjoner fra Telespor GPS-bjeller p&aring; Kartverkets topografiske kart. Fargekodede mark&oslash;rer viser hvor ferske posisjonene er:</p>
+              <div class="age-legend">
+                <span class="age-pill"><span class="age-dot" style="background:#16a34a"></span>Under 12 t</span>
+                <span class="age-pill"><span class="age-dot" style="background:#eab308"></span>12&ndash;24 t</span>
+                <span class="age-pill"><span class="age-dot" style="background:#dc2626"></span>24&ndash;48 t</span>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#129485;</span>
+              <h3>Hele letelaget i sanntid</h3>
+              <p>Alle som logger inn med samme Telespor-bruker &mdash; familie, venner og sauletere &mdash; ser hverandre live p&aring; kartet, med spor som viser hvilke omr&aring;der som er dekket.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#129517;</span>
+              <h3>Peiling uten dekning</h3>
+              <p>F&aring; retning og avstand til sauen fra der du st&aring;r. Fungerer helt uten mobildekning &mdash; siste kjente posisjoner lagres p&aring; telefonen.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128506;</span>
+              <h3>Offline kart</h3>
+              <p>Last ned kartomr&aring;der f&oslash;r du drar til fjells, og bruk appen som normalt der dekningen slutter.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128276;</span>
+              <h3>Varsler</h3>
+              <p>F&aring; beskjed n&aring;r en bjelle har lavt batteri, mister kontakt eller n&aring;r en sau ikke har beveget seg p&aring; lenge.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128337;</span>
+              <h3>7 dagers historikk</h3>
+              <p>Interaktiv tidslinje viser hvordan sauene har beveget seg &mdash; nyttig for &aring; forutse hvor de er p&aring; vei.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128172;</span>
+              <h3>Kommentarer og kartnotater</h3>
+              <p>Legg igjen kommentarer per sau og notater p&aring; kartet &mdash; synkronisert i sanntid med alle i laget.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128058;</span>
+              <h3>Rovdyr p&aring; kartet</h3>
+              <p>Observasjoner av jerv, gaupe, bj&oslash;rn og ulv fra offentlige kilder, filtrert til omr&aring;det rundt besetningen din.</p>
+            </div>
+            <div class="feature">
+              <span class="emoji">&#128274;</span>
+              <h3>Posisjonsdeling i bakgrunnen</h3>
+              <p>iOS-appen deler posisjonen din med letelaget selv om skjermen er l&aring;st &mdash; s&aring; laget alltid vet hvor det er lett.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="cta-panel">
+            <h2>&Eacute;n pris &mdash; hele letelaget deler i sanntid</h2>
+            <p>
+              Nettappen p&aring; sausank.no er gratis. iOS-appen kan lastes ned gratis, og SauSank Pro
+              er et &aring;rsabonnement der hele letelaget er inkludert i prisen &mdash; alle som logger inn
+              med samme Telespor-bruker deler abonnementet uten ekstra kostnad.
+            </p>
+            <div class="cta-row">
+              <a href="https://sausank.no" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Pr&oslash;v gratis p&aring; sausank.no</a>
+              <a href="https://apps.apple.com/no/app/sausank/id6782464052" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                Last ned fra App Store
+              </a>
+            </div>
+            <p style="margin-top: 1.25rem; font-size: 0.75rem;">
+              <a href="https://sausank.no/personvern" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-muted);">Personvern</a>
+              &nbsp;&middot;&nbsp;
+              <a href="https://sausank.no/vilkar" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-muted);">Vilk&aring;r</a>
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-rule"></div>
+        <p>
+          Laget av
+          <a href="index.html">Markus Haave Lund</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
