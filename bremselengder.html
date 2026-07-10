@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bremselengder – kalkulator for stopplengde på iPhone</title>
+    <meta name="description" content="Bremselengder er en gratis iPhone-app som beregner stopplengde ved ulike hastigheter og veiforhold som tørr asfalt, våt asfalt, snø og is." />
+    <meta name="author" content="Markus Haave Lund" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://haavelund.no/bremselengder.html" />
+    <meta name="apple-itunes-app" content="app-id=844148195" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Haavelund.no" />
+    <meta property="og:locale" content="nb_NO" />
+    <meta property="og:title" content="Bremselengder – kalkulator for stopplengde på iPhone" />
+    <meta property="og:description" content="Bremselengder er en gratis iPhone-app som beregner stopplengde ved ulike hastigheter og veiforhold som tørr asfalt, våt asfalt, snø og is." />
+    <meta property="og:url" content="https://haavelund.no/bremselengder.html" />
+    <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/81/41/3781414d-a6ef-a958-6b0a-9ac52828a67b/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/1200x630wa.png" />
+    <meta property="og:image:alt" content="Appikonet til Bremselengder" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bremselengder – kalkulator for stopplengde på iPhone" />
+    <meta name="twitter:description" content="Bremselengder er en gratis iPhone-app som beregner stopplengde ved ulike hastigheter og veiforhold som tørr asfalt, våt asfalt, snø og is." />
+    <meta name="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/81/41/3781414d-a6ef-a958-6b0a-9ac52828a67b/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/1200x630wa.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://is1-ssl.mzstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://haavelund.no/bremselengder.html#webpage",
+            "url": "https://haavelund.no/bremselengder.html",
+            "name": "Bremselengder – kalkulator for stopplengde på iPhone",
+            "description": "Informasjon og nedlasting for Bremselengder på iPhone.",
+            "inLanguage": "nb-NO",
+            "mainEntity": { "@id": "https://haavelund.no/bremselengder.html#app" }
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://haavelund.no/bremselengder.html#app",
+            "name": "Bremselengder",
+            "url": "https://haavelund.no/bremselengder.html",
+            "installUrl": "https://apps.apple.com/no/app/bremselengder/id844148195",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "iOS 15.0 or later",
+            "description": "En kalkulator for stopplengde ved ulike hastigheter og veiforhold.",
+            "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/81/41/3781414d-a6ef-a958-6b0a-9ac52828a67b/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/1200x630wa.png",
+            "featureList": ["Tørr asfalt", "Våt asfalt", "Snø", "Is", "Valgfritt GPS-speedometer"],
+            "author": { "@type": "Person", "name": "Markus Haave Lund", "url": "https://haavelund.no/" },
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NOK" }
+          }
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        --page-accent: #c43a3a;
+        --page-accent-soft: rgba(196, 58, 58, 0.09);
+      }
+
+      .back-link {
+        display: inline-flex;
+        color: var(--color-text-muted);
+        font-size: 0.8125rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 2.5rem;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      .back-link:hover { color: var(--page-accent); }
+
+      .app-hero {
+        align-items: center;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        margin-bottom: 4rem;
+      }
+      @media (min-width: 700px) { .app-hero { grid-template-columns: 160px 1fr; } }
+
+      .app-icon {
+        border-radius: 34px;
+        box-shadow: 0 12px 32px var(--color-shadow-hover);
+        display: block;
+        height: 160px;
+        width: 160px;
+      }
+      .app-hero h1 { margin-bottom: 0.75rem; }
+      .app-hero .lead {
+        color: var(--color-text-muted);
+        font-size: 1.0625rem;
+        font-weight: 300;
+        max-width: 42rem;
+      }
+
+      .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+      .btn {
+        background: var(--page-accent);
+        border-radius: 100px;
+        box-shadow: 0 3px 14px rgba(196, 58, 58, 0.28);
+        color: #fff;
+        display: inline-flex;
+        font-weight: 500;
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .btn:hover { box-shadow: 0 7px 22px rgba(196, 58, 58, 0.36); transform: translateY(-2px); }
+
+      .feature-grid {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 700px) { .feature-grid { grid-template-columns: repeat(3, 1fr); } }
+      .feature {
+        background: var(--color-card-bg);
+        border-radius: var(--radius);
+        box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+        padding: 1.5rem;
+      }
+      .feature h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; }
+      .feature p { color: var(--color-text-muted); font-size: 0.875rem; font-weight: 300; margin-top: 0.5rem; }
+      .privacy-note { color: var(--color-text-muted); font-size: 0.875rem; margin-top: 2rem; }
+      .privacy-note a { color: var(--page-accent); }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header style="margin-bottom: 0; padding-top: 2rem;">
+        <a href="index.html" class="back-link">&larr; haavelund.no</a>
+      </header>
+
+      <main>
+        <section class="app-hero">
+          <img
+            class="app-icon"
+            src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/81/41/3781414d-a6ef-a958-6b0a-9ac52828a67b/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/320x320bb.webp"
+            alt="Appikonet til Bremselengder"
+            width="160"
+            height="160"
+          />
+          <div>
+            <p class="tagline">Bremselengder for iPhone</p>
+            <h1>Se hvor lang vei bilen trenger for å stoppe</h1>
+            <p class="lead">
+              Bremselengder er en enkel kalkulator som viser stopplengde ved ulike hastigheter
+              og kjøreforhold. Sammenlign tørr og våt asfalt, snø og is på noen få sekunder.
+            </p>
+            <div class="cta-row">
+              <a class="btn" href="https://apps.apple.com/no/app/bremselengder/id844148195" target="_blank" rel="noopener noreferrer">Last ned gratis i App Store</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="project-section" aria-labelledby="features-title">
+          <div class="section-header revealed">
+            <h2 id="features-title" class="section-title">En nyttig kalkulator for norske kjøreforhold</h2>
+            <p class="section-description">Rask oversikt når fart og føre endrer seg</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature">
+              <h3>Flere veiforhold</h3>
+              <p>Beregn stopplengde på tørr asfalt, våt asfalt, snø eller is.</p>
+            </article>
+            <article class="feature">
+              <h3>Valgfri GPS-fart</h3>
+              <p>Bruk speedometeret eller skriv inn hastigheten manuelt når du vil sammenligne.</p>
+            </article>
+            <article class="feature">
+              <h3>Ingen sporing</h3>
+              <p>Beregning og eventuell posisjonsbruk skjer lokalt på enheten din.</p>
+            </article>
+          </div>
+          <p class="privacy-note">Les mer i <a href="bremselengder-privacy.html">personvernerklæringen for Bremselengder</a>.</p>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-rule"></div>
+        <p>Laget av <a href="index.html">Markus Haave Lund</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
