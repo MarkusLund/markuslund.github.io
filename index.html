@@ -22,7 +22,7 @@
     <meta name="twitter:image" content="https://haavelund.no/screenshots/fortelle.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
       {
@@ -78,12 +78,46 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <p class="tagline">Prosjekter og eksperimenter av</p>
-        <h1>Markus Haave Lund</h1>
-        <div class="header-accent"></div>
+      <header class="hero">
+        <div class="hero-contours" aria-hidden="true">
+          <svg viewBox="0 0 640 520" preserveAspectRatio="xMidYMid slice" role="presentation" focusable="false">
+            <!-- kotelinjer, topp 1 -->
+            <g class="contour">
+              <ellipse cx="430" cy="200" rx="30" ry="19" transform="rotate(-12 430 200)" />
+              <ellipse cx="436" cy="206" rx="62" ry="42" transform="rotate(-14 436 206)" />
+              <ellipse cx="442" cy="212" rx="98" ry="70" transform="rotate(-11 442 212)" />
+              <ellipse cx="450" cy="220" rx="138" ry="100" transform="rotate(-13 450 220)" />
+              <ellipse cx="458" cy="228" rx="182" ry="134" transform="rotate(-12 458 228)" />
+            </g>
+            <!-- kotelinjer, topp 2 -->
+            <g class="contour">
+              <ellipse cx="255" cy="392" rx="24" ry="15" transform="rotate(9 255 392)" />
+              <ellipse cx="260" cy="396" rx="52" ry="34" transform="rotate(7 260 396)" />
+              <ellipse cx="266" cy="402" rx="84" ry="58" transform="rotate(9 266 402)" />
+            </g>
+            <!-- UTM-kryss -->
+            <g class="grid-cross">
+              <path d="M170 128 h16 M178 120 v16" />
+              <path d="M540 428 h16 M548 420 v16" />
+            </g>
+            <!-- høydepunkter -->
+            <text class="spot-height" x="404" y="192">&#9650; 612</text>
+            <text class="spot-height" x="232" y="386">&#9650; 487</text>
+            <!-- merket sti -->
+            <path class="trail" d="M-20 480 C 90 440, 170 486, 258 432 S 400 330, 500 352 S 610 300, 680 316" />
+          </svg>
+        </div>
+        <p class="hero-eyebrow">63.43&deg; N<span class="divider">&middot;</span>10.40&deg; &Oslash;<span class="divider">&middot;</span>Trondheim, Norge</p>
+        <h1>Markus Haave Lund<span class="punkt">.</span></h1>
+        <p class="hero-thesis">Jeg bygger apper, nettsider og verkt&oslash;y som l&oslash;ser ekte problemer &mdash; fra GPS-sporing av sau i fjellet til eventyrstunder ved leggetid.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#prosjekter">Se prosjektene</a>
+          <a class="btn btn-line" href="https://github.com/markuslund" target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>
+        </div>
+        <p class="hero-meta">19 prosjekter &middot; Web &middot; iOS &middot; CLI &amp; utvidelser</p>
       </header>
 
+      <p class="slideshow-label">Utvalgte prosjekter</p>
       <section class="hero-slideshow" aria-label="Utvalgte prosjekter">
         <div class="slideshow-track">
           <a href="https://rbknytt.no" target="_blank" rel="noopener noreferrer" class="slide">
@@ -132,13 +166,15 @@
         <div class="slideshow-dots"></div>
       </section>
 
-      <main>
+      <main id="prosjekter">
         <section class="project-section">
           <div class="section-header">
+            <span class="legend-mark" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><rect x="1.5" y="1.5" width="11" height="11" /></svg></span>
             <div>
               <h2 class="section-title">Apper</h2>
               <p class="section-description">Nettbaserte verkt&oslash;y og apper</p>
             </div>
+            <span class="section-count">8 stk</span>
           </div>
           <div class="projects-grid">
             <a href="https://sfo.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 0">
@@ -173,6 +209,7 @@
 
             <a href="sausank.html" class="project-card" style="--i: 3">
               <div class="card-img">
+                <span class="card-tag">Web + iOS</span>
                 <img src="screenshots/sausank.jpg" alt="SauSank" loading="lazy" style="--obj-pos: center center" />
               </div>
               <div class="card-body">
@@ -225,14 +262,16 @@
 
         <section class="project-section">
           <div class="section-header">
+            <span class="legend-mark" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><rect x="1.5" y="1.5" width="11" height="11" rx="3.5" /></svg></span>
             <div>
               <h2 class="section-title">iOS-apper</h2>
               <p class="section-description">Mobilapper for iPhone og iPad</p>
             </div>
+            <span class="section-count">3 stk</span>
           </div>
           <div class="projects-grid">
             <a href="TilKalender.html" class="project-card" style="--i: 0">
-              <div class="card-img card-img--placeholder" style="--ph-hue: 270">
+              <div class="card-img card-img--placeholder">
                 <span class="placeholder-label">TilKalender</span>
                 <span class="placeholder-tag">iOS</span>
               </div>
@@ -243,7 +282,7 @@
             </a>
 
             <a href="bremselengder.html" class="project-card" style="--i: 1">
-              <div class="card-img card-img--placeholder" style="--ph-hue: 340">
+              <div class="card-img card-img--placeholder">
                 <span class="placeholder-label">Bremselengder</span>
                 <span class="placeholder-tag">iOS</span>
               </div>
@@ -267,10 +306,12 @@
 
         <section class="project-section">
           <div class="section-header">
+            <span class="legend-mark" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1.5 L12.5 7 L7 12.5 L1.5 7 Z" /></svg></span>
             <div>
               <h2 class="section-title">Spill</h2>
               <p class="section-description">Nettbaserte spill</p>
             </div>
+            <span class="section-count">4 stk</span>
           </div>
           <div class="projects-grid">
             <a href="https://jolv.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 0">
@@ -284,7 +325,7 @@
             </a>
 
             <a href="https://pong.haavelund.no" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 1">
-              <div class="card-img card-img--placeholder" style="--ph-hue: 200">
+              <div class="card-img card-img--placeholder">
                 <span class="placeholder-label">PongGPT</span>
               </div>
               <div class="card-body">
@@ -317,14 +358,16 @@
 
         <section class="project-section">
           <div class="section-header">
+            <span class="legend-mark" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1 v12 M1 7 h12" /></svg></span>
             <div>
               <h2 class="section-title">Verkt&oslash;y &amp; Utvidelser</h2>
               <p class="section-description">CLI-verkt&oslash;y og nettleserutvidelser</p>
             </div>
+            <span class="section-count">5 stk</span>
           </div>
           <div class="projects-grid">
             <a href="https://github.com/markuslund/aidebate" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 0">
-              <div class="card-img card-img--placeholder" style="--ph-hue: 250">
+              <div class="card-img card-img--placeholder">
                 <span class="placeholder-label">AI Debate</span>
                 <span class="placeholder-tag">npm</span>
               </div>
@@ -335,7 +378,7 @@
             </a>
 
             <a href="https://github.com/markuslund/copyfc" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 1">
-              <div class="card-img card-img--placeholder" style="--ph-hue: 210">
+              <div class="card-img card-img--placeholder">
                 <span class="placeholder-label">copyfc</span>
                 <span class="placeholder-tag">VS Code</span>
               </div>
@@ -346,7 +389,7 @@
             </a>
 
             <a href="https://github.com/markuslund/video-playback-speed" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 2">
-              <div class="card-img card-img--placeholder" style="--ph-hue: 0">
+              <div class="card-img card-img--placeholder">
                 <span class="placeholder-label">Playback Speed</span>
                 <span class="placeholder-tag">Chrome</span>
               </div>
@@ -357,7 +400,7 @@
             </a>
 
             <a href="https://github.com/markuslund/chrome-console-copy" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 3">
-              <div class="card-img card-img--placeholder" style="--ph-hue: 160">
+              <div class="card-img card-img--placeholder">
                 <span class="placeholder-label">Console Copy</span>
                 <span class="placeholder-tag">Chrome</span>
               </div>
@@ -368,7 +411,7 @@
             </a>
 
             <a href="https://github.com/markuslund/claudesessionstarter" target="_blank" rel="noopener noreferrer" class="project-card" style="--i: 4">
-              <div class="card-img card-img--placeholder" style="--ph-hue: 30">
+              <div class="card-img card-img--placeholder">
                 <span class="placeholder-label">Session Starter</span>
                 <span class="placeholder-tag">GitHub Actions</span>
               </div>
@@ -380,6 +423,15 @@
           </div>
         </section>
       </main>
+
+      <section class="cta-band" aria-label="Kontakt">
+        <p class="cta-eyebrow">Neste prosjekt</p>
+        <h2>Har du et problem som trenger en app eller nettside?</h2>
+        <p>Jeg liker sm&aring; verkt&oslash;y som l&oslash;ser konkrete hverdagsproblemer &mdash; og bygger dem gjerne. Ta kontakt, eller f&oslash;lg med p&aring; hva jeg lager.</p>
+        <div class="cta-actions">
+          <a class="btn btn-solid" href="https://github.com/markuslund" target="_blank" rel="noopener noreferrer">Finn meg p&aring; GitHub &#8599;</a>
+        </div>
+      </section>
 
       <footer>
         <div class="footer-rule"></div>
@@ -402,7 +454,7 @@
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
       document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
-      document.querySelectorAll('.section-header').forEach(h => observer.observe(h));
+      document.querySelectorAll('.section-header, .cta-band').forEach(h => observer.observe(h));
 
       // Slideshow
       (() => {
