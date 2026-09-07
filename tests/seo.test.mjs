@@ -14,10 +14,18 @@ const pages = [
 ];
 
 const utilityPages = [
+  { file: "404.html", canonical: `${origin}/404.html` },
   { file: "bremselengder-privacy.html", canonical: `${origin}/bremselengder-privacy.html` },
   { file: "profeten-privacy.html", canonical: `${origin}/profeten-privacy.html` },
   { file: "tocalendar/privacy.html", canonical: `${origin}/tocalendar/privacy.html` },
-  { file: "sausank/privacy.html", canonical: "https://sausank.no/personvern" },
+];
+
+// Omdirigeringsstubber skal bare omdirigere. Google behandler «refresh 0» som en
+// permanent viderekobling, men noindex kan hindre at den prosesseres, og en
+// canonical er overflodig nar malet allerede er utpekt av omdirigeringen.
+const redirectPages = [
+  { file: "sausank/privacy.html", target: "https://sausank.no/personvern" },
+  { file: "tocalendar/index.html", target: "../ToCalendar.html" },
 ];
 
 function read(path) {
@@ -109,14 +117,18 @@ test("titles, descriptions, and canonicals are unique across indexable pages", (
 });
 
 test("every local page link and resource points to an existing file", () => {
-  const htmlFiles = [...pages, ...utilityPages].map((page) => page.file);
+  const htmlFiles = [...pages, ...utilityPages, ...redirectPages].map((page) => page.file);
 
   for (const file of htmlFiles) {
     const pageUrl = new URL(`../${file}`, import.meta.url);
     const references = [...read(file).matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1]);
     for (const reference of references) {
       if (/^(?:[a-z]+:|#)/i.test(reference)) continue;
-      const localUrl = new URL(reference, pageUrl);
+      const [path] = reference.split("#");
+      if (!path) continue;
+      const localUrl = path.startsWith("/")
+        ? new URL(`..${path}`, import.meta.url)
+        : new URL(path, pageUrl);
       assert.ok(existsSync(localUrl), `${file} references missing local file ${reference}`);
     }
   }
@@ -164,4 +176,26 @@ test("sitemap.xml contains every canonical indexable page and no redirect", () =
   assert.deepEqual(locations, pages.map((page) => page.canonical));
   assert.doesNotMatch(sitemap, /sausank\/privacy\.html/);
   assert.equal([...sitemap.matchAll(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g)].length, pages.length);
+});
+
+for (const page of redirectPages) {
+  test(`${page.file} redirects cleanly, without competing signals`, () => {
+    const html = read(page.file);
+    const documentHead = head(html);
+    assert.equal(metaContent(documentHead, "http-equiv", "refresh"), `0; url=${page.target}`);
+    assert.ok(html.includes(`window.location.replace("${page.target}")`), "redirect must also work without meta refresh");
+    assert.ok(html.includes(`<a href="${page.target}">`), "a redirect stub must still offer a crawlable link");
+    assert.equal(metaContent(documentHead, "name", "robots"), undefined, "noindex can stop the redirect being processed");
+    assert.equal(attribute(documentHead, /<link\s+[^>]*rel=["']canonical["'][^>]*>/i, "href"), undefined);
+  });
+}
+
+test("no indexable page is orphaned from internal linking", () => {
+  const linkGraph = new Map(pages.map(({ file }) => [file, read(file)]));
+  const targets = pages.map(({ file }) => file).filter((file) => file !== "index.html");
+
+  for (const target of targets) {
+    const inbound = [...linkGraph].filter(([file, html]) => file !== target && html.includes(`href="${target}"`));
+    assert.ok(inbound.length > 0, `${target} needs at least one inbound internal link`);
+  }
 });
