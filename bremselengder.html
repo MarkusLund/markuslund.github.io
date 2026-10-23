@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bremselengder – kalkulator for stopplengde på iPhone</title>
-    <meta name="description" content="Bremselengder er en gratis iPhone-app som beregner stopplengde ved ulike hastigheter og veiforhold som tørr asfalt, våt asfalt, snø og is." />
+    <title>Bremselengder – beregn bremselengde etter fart og føre</title>
+    <meta name="description" content="Bremselengder er en gratis iPhone-app som beregner bremselengde etter fart og føre: tørr og våt asfalt, snø og is. Med tabell, formel og forklaring." />
     <meta name="author" content="Markus Haave Lund" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://haavelund.no/bremselengder.html" />
@@ -12,14 +12,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Haavelund.no" />
     <meta property="og:locale" content="nb_NO" />
-    <meta property="og:title" content="Bremselengder – kalkulator for stopplengde på iPhone" />
-    <meta property="og:description" content="Bremselengder er en gratis iPhone-app som beregner stopplengde ved ulike hastigheter og veiforhold som tørr asfalt, våt asfalt, snø og is." />
+    <meta property="og:title" content="Bremselengder – beregn bremselengde etter fart og føre" />
+    <meta property="og:description" content="Bremselengder er en gratis iPhone-app som beregner bremselengde etter fart og føre: tørr og våt asfalt, snø og is. Med tabell, formel og forklaring." />
     <meta property="og:url" content="https://haavelund.no/bremselengder.html" />
     <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/81/41/3781414d-a6ef-a958-6b0a-9ac52828a67b/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/1200x630wa.png" />
     <meta property="og:image:alt" content="Appikonet til Bremselengder" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Bremselengder – kalkulator for stopplengde på iPhone" />
-    <meta name="twitter:description" content="Bremselengder er en gratis iPhone-app som beregner stopplengde ved ulike hastigheter og veiforhold som tørr asfalt, våt asfalt, snø og is." />
+    <meta name="twitter:title" content="Bremselengder – beregn bremselengde etter fart og føre" />
+    <meta name="twitter:description" content="Bremselengder er en gratis iPhone-app som beregner bremselengde etter fart og føre: tørr og våt asfalt, snø og is. Med tabell, formel og forklaring." />
     <meta name="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/81/41/3781414d-a6ef-a958-6b0a-9ac52828a67b/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/1200x630wa.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,8 +34,8 @@
             "@type": "WebPage",
             "@id": "https://haavelund.no/bremselengder.html#webpage",
             "url": "https://haavelund.no/bremselengder.html",
-            "name": "Bremselengder – kalkulator for stopplengde på iPhone",
-            "description": "Informasjon og nedlasting for Bremselengder på iPhone.",
+            "name": "Bremselengder – beregn bremselengde etter fart og føre",
+            "description": "Informasjon, formel, tabell over bremselengder og nedlasting for Bremselengder på iPhone.",
             "inLanguage": "nb-NO",
             "mainEntity": { "@id": "https://haavelund.no/bremselengder.html#app" }
           },
@@ -47,8 +47,14 @@
             "installUrl": "https://apps.apple.com/no/app/bremselengder/id844148195",
             "applicationCategory": "UtilitiesApplication",
             "operatingSystem": "iOS 15.0 or later",
-            "description": "En kalkulator for stopplengde ved ulike hastigheter og veiforhold.",
+            "description": "En kalkulator for bremselengde ved ulike hastigheter og veiforhold, basert på friksjonen mellom dekk og vei.",
             "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/81/41/3781414d-a6ef-a958-6b0a-9ac52828a67b/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/1200x630wa.png",
+            "screenshot": [
+              "https://haavelund.no/screenshots/bremselengder/01-default.jpg",
+              "https://haavelund.no/screenshots/bremselengder/03-wet-asphalt.jpg",
+              "https://haavelund.no/screenshots/bremselengder/05-ice.jpg",
+              "https://haavelund.no/screenshots/bremselengder/04-snow.jpg"
+            ],
             "featureList": ["Tørr asfalt", "Våt asfalt", "Snø", "Is", "Valgfritt GPS-speedometer"],
             "author": { "@type": "Person", "name": "Markus Haave Lund", "url": "https://haavelund.no/" },
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NOK" }
@@ -126,7 +132,55 @@
       .feature h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; }
       .feature p { color: var(--color-text-muted); font-size: 0.875rem; font-weight: 300; margin-top: 0.5rem; }
       .privacy-note { color: var(--color-text-muted); font-size: 0.875rem; margin-top: 2rem; }
-      .privacy-note a { color: var(--page-accent); }
+      .privacy-note a, .prose a, .faq a { color: var(--page-accent); }
+
+      .phone-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(2, 1fr); }
+      @media (min-width: 700px) { .phone-grid { grid-template-columns: repeat(4, 1fr); } }
+      .phone-shot {
+        background: var(--color-card-bg);
+        border-radius: var(--radius);
+        box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+        overflow: hidden;
+      }
+      .phone-shot img { aspect-ratio: 600 / 1304; display: block; height: auto; width: 100%; }
+      .phone-shot figcaption { color: var(--color-text-muted); font-size: 0.8125rem; padding: 0.75rem 1rem 0.875rem; }
+
+      .prose { color: var(--color-text-muted); max-width: 44rem; }
+      .prose p { margin-bottom: 1rem; }
+      .prose strong { color: var(--color-text); }
+      .formula {
+        background: var(--color-card-bg);
+        border-left: 3px solid var(--page-accent);
+        border-radius: var(--radius);
+        box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+        color: var(--color-text);
+        font-family: var(--font-mono);
+        font-size: 0.9375rem;
+        margin: 0.25rem 0 1.5rem;
+        max-width: 44rem;
+        padding: 1rem 1.25rem;
+      }
+      .formula span { color: var(--color-text-muted); display: block; font-size: 0.8125rem; margin-top: 0.375rem; }
+
+      .table-scroll { overflow-x: auto; }
+      .data-table { border-collapse: collapse; font-size: 0.9375rem; min-width: 32rem; width: 100%; }
+      .data-table caption { color: var(--color-text-muted); font-size: 0.8125rem; padding-bottom: 0.75rem; text-align: left; }
+      .data-table th, .data-table td { border-bottom: 1px solid var(--color-border); padding: 0.625rem 0.75rem 0.625rem 0; text-align: left; }
+      .data-table thead th {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .data-table .symbol { text-transform: none; }
+      .data-table td { color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+      .data-table tbody th { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+
+      .faq { max-width: 44rem; }
+      .faq h3 { font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-top: 1.5rem; }
+      .faq h3:first-child { margin-top: 0; }
+      .faq p { color: var(--color-text-muted); margin-top: 0.375rem; }
     </style>
   </head>
   <body>
@@ -148,8 +202,9 @@
             <p class="tagline">Bremselengder for iPhone</p>
             <h1>Se hvor lang vei bilen trenger for å stoppe</h1>
             <p class="lead">
-              Bremselengder er en enkel kalkulator som viser stopplengde ved ulike hastigheter
-              og kjøreforhold. Sammenlign tørr og våt asfalt, snø og is på noen få sekunder.
+              Bremselengder er en enkel kalkulator som viser bremselengden til en vanlig personbil
+              ved ulike hastigheter og kjøreforhold. Sammenlign tørr og våt asfalt, snø og is på noen
+              få sekunder, og se hvor mye føret betyr.
             </p>
             <div class="cta-row">
               <a class="btn" href="https://apps.apple.com/no/app/bremselengder/id844148195" target="_blank" rel="noopener noreferrer">Last ned gratis i App Store</a>
@@ -165,7 +220,7 @@
           <div class="feature-grid">
             <article class="feature">
               <h3>Flere veiforhold</h3>
-              <p>Beregn stopplengde på tørr asfalt, våt asfalt, snø eller is.</p>
+              <p>Beregn bremselengde på tørr asfalt, våt asfalt, snø eller is.</p>
             </article>
             <article class="feature">
               <h3>Valgfri GPS-fart</h3>
@@ -176,7 +231,157 @@
               <p>Beregning og eventuell posisjonsbruk skjer lokalt på enheten din.</p>
             </article>
           </div>
-          <p class="privacy-note">Les mer i <a href="bremselengder-privacy.html">personvernerklæringen for Bremselengder</a>.</p>
+        </section>
+
+        <section class="project-section" aria-labelledby="shots-title">
+          <div class="section-header revealed">
+            <h2 id="shots-title" class="section-title">Slik ser appen ut</h2>
+            <p class="section-description">Skriv inn farten, velg føre</p>
+          </div>
+          <div class="phone-grid">
+            <figure class="phone-shot">
+              <img src="screenshots/bremselengder/01-default.jpg" alt="Bremselengder med 60 km/t på tørr asfalt" width="600" height="1304" loading="lazy" />
+              <figcaption>Tørr asfalt</figcaption>
+            </figure>
+            <figure class="phone-shot">
+              <img src="screenshots/bremselengder/03-wet-asphalt.jpg" alt="Bremselengder med 60 km/t på våt asfalt" width="600" height="1304" loading="lazy" />
+              <figcaption>Våt asfalt</figcaption>
+            </figure>
+            <figure class="phone-shot">
+              <img src="screenshots/bremselengder/04-snow.jpg" alt="Bremselengder med 60 km/t på snø" width="600" height="1304" loading="lazy" />
+              <figcaption>Snø</figcaption>
+            </figure>
+            <figure class="phone-shot">
+              <img src="screenshots/bremselengder/05-ice.jpg" alt="Bremselengder med 60 km/t på is" width="600" height="1304" loading="lazy" />
+              <figcaption>Is</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="project-section" aria-labelledby="formel-title">
+          <div class="section-header revealed">
+            <h2 id="formel-title" class="section-title">Slik regner appen</h2>
+            <p class="section-description">Fart, friksjon og tyngdekraft</p>
+          </div>
+          <div class="prose">
+            <p>
+              Bremselengden er strekningen bilen kjører fra bremsene tar til den står stille. Den
+              avhenger av farten og av friksjonen mellom dekk og vei. Appen bruker den vanlige
+              formelen fra fysikken:
+            </p>
+          </div>
+          <p class="formula">
+            d = v² / (2 · μ · g)
+            <span>d = bremselengde i meter · v = fart i m/s (km/t delt på 3,6) · μ = friksjonstall · g = 9,81 m/s²</span>
+          </p>
+          <div class="prose">
+            <p>
+              Friksjonstallet μ sier hvor godt dekkene griper. Det varierer med dekk, temperatur og
+              underlag, og derfor viser appen et <strong>spenn</strong> i stedet for ett tall. Det korte
+              tallet gjelder gode forhold, det lange gjelder dårlige.
+            </p>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table">
+              <caption>Friksjonstall appen bruker for hvert føre</caption>
+              <thead>
+                <tr><th scope="col">Føre</th><th scope="col">Friksjonstall <span class="symbol">μ</span></th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Tørr asfalt</th><td>0,7–0,9</td></tr>
+                <tr><th scope="row">Våt asfalt</th><td>0,4–0,6</td></tr>
+                <tr><th scope="row">Snø</th><td>0,2–0,4</td></tr>
+                <tr><th scope="row">Is</th><td>0,18–0,25</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="project-section" aria-labelledby="tabell-title">
+          <div class="section-header revealed">
+            <h2 id="tabell-title" class="section-title">Bremselengde ved ulike hastigheter</h2>
+            <p class="section-description">Avrundet til hele meter</p>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table">
+              <caption>Bremselengde i meter, regnet med formelen og friksjonstallene over</caption>
+              <thead>
+                <tr><th scope="col">Fart</th><th scope="col">Tørr asfalt</th><th scope="col">Våt asfalt</th><th scope="col">Snø</th><th scope="col">Is</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">30 km/t</th><td>4–5</td><td>6–9</td><td>9–18</td><td>14–20</td></tr>
+                <tr><th scope="row">50 km/t</th><td>11–14</td><td>16–25</td><td>25–49</td><td>39–55</td></tr>
+                <tr><th scope="row">60 km/t</th><td>16–20</td><td>24–35</td><td>35–71</td><td>57–79</td></tr>
+                <tr><th scope="row">80 km/t</th><td>28–36</td><td>42–63</td><td>63–126</td><td>101–140</td></tr>
+                <tr><th scope="row">90 km/t</th><td>35–46</td><td>53–80</td><td>80–159</td><td>127–177</td></tr>
+                <tr><th scope="row">110 km/t</th><td>53–68</td><td>79–119</td><td>119–238</td><td>190–264</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="prose" style="margin-top: 1.5rem;">
+            <p>
+              Legg merke til at farten står i annen potens i formelen. <strong>Dobbel fart gir fire
+              ganger så lang bremselengde.</strong> Fra 50 til 100 km/t går bremselengden på tørr asfalt
+              fra rundt 11–14 meter til rundt 44–56 meter. På is er bremselengden tre til fire ganger
+              så lang som på tørr asfalt ved samme fart.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section" aria-labelledby="stopp-title">
+          <div class="section-header revealed">
+            <h2 id="stopp-title" class="section-title">Bremselengde og stopplengde</h2>
+            <p class="section-description">Reaksjonstiden kommer i tillegg</p>
+          </div>
+          <div class="prose">
+            <p>
+              Appen viser bremselengden. Før du begynner å bremse, kjører bilen videre mens du oppdager
+              faren og flytter foten til bremsen. Den strekningen kalles <strong>reaksjonslengde</strong>.
+              Til sammen blir det <strong>stopplengden</strong>:
+            </p>
+          </div>
+          <p class="formula">
+            stopplengde = v · t + v² / (2 · μ · g)
+            <span>t = reaksjonstid i sekunder</span>
+          </p>
+          <div class="prose">
+            <p>
+              Med én sekunds reaksjonstid kjører du omtrent 14 meter ved 50 km/t og 22 meter ved
+              80 km/t før bremsene i det hele tatt tar. Ved 80 km/t på tørr asfalt blir stopplengden
+              dermed rundt 50–58 meter, og på snø rundt 85–148 meter. Er du trøtt eller ufokusert, blir
+              reaksjonstiden lengre.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section" aria-labelledby="faq-title">
+          <div class="section-header revealed">
+            <h2 id="faq-title" class="section-title">Vanlige spørsmål</h2>
+            <p class="section-description">Om tallene og appen</p>
+          </div>
+          <div class="faq">
+            <h3>Hvor nøyaktige er tallene?</h3>
+            <p>
+              De er et anslag for en gjennomsnittlig personbil. Formelen er forenklet: dekk, bremser,
+              last, helling og vær kan gi store utslag. Bruk tallene til å forstå hvor mye fart og føre
+              betyr, ikke som en garanti for hvor bilen stopper.
+            </p>
+
+            <h3>Kan jeg bruke appen mens jeg kjører?</h3>
+            <p>
+              Nei. Speedometeret bruker GPS for å vise farten, men appen ber deg om ikke å bruke den når
+              du er fører. Slå det på som passasjer, eller skriv inn farten selv.
+            </p>
+
+            <h3>Hva koster appen?</h3>
+            <p>Bremselengder er gratis, uten reklame og uten kjøp i appen. Den krever iOS 15 eller nyere.</p>
+
+            <h3>Hva skjer med posisjonen min?</h3>
+            <p>
+              Posisjonen brukes bare til å regne ut farten mens speedometeret er slått på. Den lagres,
+              sendes eller deles ikke. Les mer i <a href="bremselengder-privacy.html">personvernerklæringen for Bremselengder</a>.
+            </p>
+          </div>
         </section>
       </main>
 

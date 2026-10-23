@@ -11,6 +11,8 @@ const pages = [
   { file: "bremselengder.html", canonical: `${origin}/bremselengder.html`, locale: "nb_NO", type: "website" },
   { file: "TilKalender.html", canonical: `${origin}/TilKalender.html`, locale: "nb_NO", type: "website" },
   { file: "ToCalendar.html", canonical: `${origin}/ToCalendar.html`, locale: "en_US", type: "website" },
+  { file: "sagt/index.html", canonical: `${origin}/sagt/`, locale: "nb_NO", type: "website" },
+  { file: "sagt/en/index.html", canonical: `${origin}/sagt/en/`, locale: "en_US", type: "website" },
 ];
 
 const utilityPages = [
@@ -18,8 +20,6 @@ const utilityPages = [
   { file: "bremselengder-privacy.html", canonical: `${origin}/bremselengder-privacy.html` },
   { file: "profeten-privacy.html", canonical: `${origin}/profeten-privacy.html` },
   { file: "tocalendar/privacy.html", canonical: `${origin}/tocalendar/privacy.html` },
-  { file: "sagt/index.html", canonical: `${origin}/sagt/` },
-  { file: "sagt/en/index.html", canonical: `${origin}/sagt/en/` },
   { file: "sagt/personvern/index.html", canonical: `${origin}/sagt/personvern/` },
   { file: "sagt/en/privacy/index.html", canonical: `${origin}/sagt/en/privacy/` },
 ];
@@ -138,7 +138,7 @@ test("every local page link and resource points to an existing file", () => {
   }
 });
 
-for (const file of ["fortelle.html", "sausank.html", "bremselengder.html", "TilKalender.html", "ToCalendar.html"]) {
+for (const file of ["fortelle.html", "sausank.html", "bremselengder.html", "TilKalender.html", "ToCalendar.html", "sagt/index.html", "sagt/en/index.html"]) {
   test(`${file} identifies the featured app in structured data`, () => {
     const data = jsonLd(read(file)).flatMap((entry) => entry["@graph"] ?? [entry]);
     assert.ok(
@@ -148,14 +148,23 @@ for (const file of ["fortelle.html", "sausank.html", "bremselengder.html", "TilK
   });
 }
 
-test("localized ToCalendar pages are connected with reciprocal hreflang links", () => {
-  for (const file of ["TilKalender.html", "ToCalendar.html"]) {
-    const documentHead = head(read(file));
-    assert.match(documentHead, /hreflang=["']nb-NO["'][^>]*href=["']https:\/\/haavelund\.no\/TilKalender\.html["']/i);
-    assert.match(documentHead, /hreflang=["']en["'][^>]*href=["']https:\/\/haavelund\.no\/ToCalendar\.html["']/i);
-    assert.match(documentHead, /hreflang=["']x-default["'][^>]*href=["']https:\/\/haavelund\.no\/TilKalender\.html["']/i);
-  }
-});
+const localizedPairs = [
+  { files: ["TilKalender.html", "ToCalendar.html"], nb: `${origin}/TilKalender.html`, en: `${origin}/ToCalendar.html` },
+  { files: ["sagt/index.html", "sagt/en/index.html"], nb: `${origin}/sagt/`, en: `${origin}/sagt/en/` },
+];
+
+for (const pair of localizedPairs) {
+  test(`localized ${pair.files.join(" and ")} are connected with reciprocal hreflang links`, () => {
+    for (const file of pair.files) {
+      const documentHead = head(read(file));
+      const hreflang = (lang) =>
+        attribute(documentHead, new RegExp(`<link\\s+[^>]*hreflang=["']${lang}["'][^>]*>`, "i"), "href");
+      assert.equal(hreflang("nb-NO"), pair.nb);
+      assert.equal(hreflang("en"), pair.en);
+      assert.equal(hreflang("x-default"), pair.nb);
+    }
+  });
+}
 
 for (const page of utilityPages) {
   test(`${page.file} is canonical but excluded from search results`, () => {
@@ -197,9 +206,16 @@ for (const page of redirectPages) {
 test("no indexable page is orphaned from internal linking", () => {
   const linkGraph = new Map(pages.map(({ file }) => [file, read(file)]));
   const targets = pages.map(({ file }) => file).filter((file) => file !== "index.html");
+  // En mappeside (sagt/index.html) lenkes som «sagt/» eller «/sagt/».
+  const hrefsFor = (file) => {
+    const directory = file.match(/^(.+\/)index\.html$/)?.[1];
+    return directory ? [directory, `/${directory}`] : [file];
+  };
 
   for (const target of targets) {
-    const inbound = [...linkGraph].filter(([file, html]) => file !== target && html.includes(`href="${target}"`));
+    const inbound = [...linkGraph].filter(
+      ([file, html]) => file !== target && hrefsFor(target).some((href) => html.includes(`href="${href}"`)),
+    );
     assert.ok(inbound.length > 0, `${target} needs at least one inbound internal link`);
   }
 });
