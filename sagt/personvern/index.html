@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personvernerklæring – Sagt for Mac</title>
+    <meta name="description" content="Personvernerklæring for Sagt, en Mac-app som transkriberer lyd til norsk tekst lokalt. Appen samler ikke inn data, og lyden forlater aldri maskinen." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://haavelund.no/sagt/personvern/" />
+    <link rel="alternate" hreflang="nb-NO" href="https://haavelund.no/sagt/personvern/" />
+    <link rel="alternate" hreflang="en" href="https://haavelund.no/sagt/en/privacy/" />
+    <link rel="alternate" hreflang="x-default" href="https://haavelund.no/sagt/personvern/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/sagt/sagt.css" />
+  </head>
+  <body>
+    <div class="container sagt-page">
+      <header class="sagt-topbar">
+        <a href="/sagt/" class="back-link">&larr; Sagt</a>
+        <nav class="lang-switch" aria-label="Språk">
+          <span aria-current="page">Norsk</span><span class="sep" aria-hidden="true">/</span><a href="/sagt/en/privacy/" hreflang="en" lang="en">English</a>
+        </nav>
+      </header>
+
+      <main>
+        <p class="tagline">Sagt for Mac</p>
+        <h1>Personvernerklæring</h1>
+
+        <div class="summary-box">
+          <p>
+            <strong>Kort fortalt:</strong> Sagt samler ikke inn data om deg.
+            Lyden transkriberes på din egen Mac og forlater aldri maskinen.
+          </p>
+        </div>
+
+        <h2>Ingen datainnsamling</h2>
+        <p>
+          Sagt har ingen analyse, sporing, brukerkonto eller reklame, og
+          inneholder ingen tredjeparts-SDK-er for slike formål. Utvikleren
+          mottar ingen data fra appen.
+        </p>
+
+        <h2>Transkribering skjer lokalt</h2>
+        <p>
+          Sagt gjør om lydfiler til norsk tekst med talegjenkjenningsmodellen
+          Whisper, som kjører på Macen din via WhisperKit og Core ML. Lyden
+          sendes ikke til noen server.
+        </p>
+
+        <h2>Titler, sammendrag og «Spør prosjektet»</h2>
+        <p>
+          Disse funksjonene bruker Apples innebygde språkmodell
+          (Foundation Models, macOS 26 eller nyere), som kjører på enheten.
+          Teksten din sendes ikke til utvikleren eller andre tjenester.
+        </p>
+
+        <h2>Nettverkstilkobling</h2>
+        <p>
+          Appens eneste nettforbindelse er nedlastingen av språkmodellen
+          (Whisper large-v3) og tilhørende tokenizer-filer fra Hugging Face,
+          første gang du trykker «Last ned». Ingen opptak, tekster eller andre
+          data fra appen sendes med. Som ved enhver nedlasting kan Hugging Face
+          se vanlig teknisk informasjon, som IP-adressen din. Hugging Face har
+          sin egen <a href="https://huggingface.co/privacy">personvernerklæring</a>.
+          Etter nedlastingen fungerer Sagt uten nett.
+        </p>
+
+        <h2>Lagring og tilgang til filer</h2>
+        <ul>
+          <li>
+            Opptak, transkripsjoner, prosjekter og søkeindeksen lagres lokalt
+            i biblioteksmappen du selv har valgt. Du kan slette dem når som
+            helst.
+          </li>
+          <li>
+            Sagt kjører i Apples App Sandbox og leser bare filer du selv drar
+            inn i appen eller velger.
+          </li>
+        </ul>
+
+        <h2>Kjøp</h2>
+        <p>Sagt har ingen kjøp i appen og ingen abonnement.</p>
+
+        <h2>Endringer</h2>
+        <p>
+          Hvis denne personvernerklæringen endres, publiseres den nye versjonen
+          på denne siden med ny dato.
+        </p>
+
+        <div class="contact-box">
+          <h2>Kontakt</h2>
+          <p>
+            Spørsmål om personvern i Sagt? Send en e-post til
+            <a href="mailto:markus@haavelund.no">markus@haavelund.no</a>.
+          </p>
+        </div>
+
+        <p class="last-updated">Sist oppdatert: 23. oktober 2026</p>
+      </main>
+
+      <footer>
+        <div class="footer-rule"></div>
+        <p>Laget av <a href="/">Markus Haave Lund</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

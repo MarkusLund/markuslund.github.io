@@ -1,0 +1,103 @@
+/* Felles stil for Sagt-sidene (support og personvern, norsk og engelsk) */
+
+.sagt-page {
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sagt-topbar {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+.back-link,
+.lang-switch {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.back-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+.back-link:hover { color: var(--color-accent); }
+
+.lang-switch { color: var(--color-text-muted); }
+.lang-switch a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+.lang-switch a:hover { color: var(--color-accent); }
+.lang-switch [aria-current="page"] {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+.lang-switch .sep { margin: 0 0.375rem; }
+
+.sagt-page h1 {
+  font-size: clamp(2.25rem, 6vw, 3.25rem);
+  margin-bottom: 1rem;
+}
+
+.sagt-page .lead {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.sagt-page h2 {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--spacing-xs);
+  margin-top: var(--spacing-lg);
+}
+
+.sagt-page p,
+.sagt-page ul {
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+.sagt-page ul { padding-left: var(--spacing-md); }
+.sagt-page li { margin-bottom: var(--spacing-xs); }
+.sagt-page strong { color: var(--color-text); }
+.sagt-page main a { color: var(--color-accent); }
+.sagt-page main a:hover { color: var(--color-accent-hover); }
+
+.summary-box {
+  background: var(--color-card-bg);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+  margin: 1.5rem 0 0.5rem;
+  padding: 1.25rem 1.5rem;
+}
+.summary-box p { margin-bottom: 0; }
+
+.contact-box {
+  background: var(--color-card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px var(--color-shadow), 0 0 0 1px var(--color-border);
+  margin-top: var(--spacing-lg);
+  padding: 1.5rem;
+}
+.contact-box h2 { margin-top: 0; }
+.contact-box p:last-child { margin-bottom: 0; }
+
+.last-updated {
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+}

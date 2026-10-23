@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sagt for Mac – støtte og spørsmål</title>
+    <meta name="description" content="Støtteside for Sagt, en Mac-app som transkriberer lydfiler til norsk tekst lokalt med Whisper. Svar på vanlige spørsmål og kontaktinformasjon." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://haavelund.no/sagt/" />
+    <link rel="alternate" hreflang="nb-NO" href="https://haavelund.no/sagt/" />
+    <link rel="alternate" hreflang="en" href="https://haavelund.no/sagt/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://haavelund.no/sagt/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/sagt/sagt.css" />
+  </head>
+  <body>
+    <div class="container sagt-page">
+      <header class="sagt-topbar">
+        <a href="/" class="back-link">&larr; haavelund.no</a>
+        <nav class="lang-switch" aria-label="Språk">
+          <span aria-current="page">Norsk</span><span class="sep" aria-hidden="true">/</span><a href="/sagt/en/" hreflang="en" lang="en">English</a>
+        </nav>
+      </header>
+
+      <main>
+        <p class="tagline">Sagt for Mac</p>
+        <h1>Sagt</h1>
+        <p class="lead">
+          Sagt transkriberer lydfiler til norsk tekst, lokalt på Macen din.
+          Lyden forlater aldri maskinen.
+        </p>
+
+        <h2>Vanlige spørsmål</h2>
+
+        <p><strong>Trenger jeg internett?</strong></p>
+        <p>
+          Bare én gang: første gang du trykker «Last ned», henter Sagt
+          språkmodellen (Whisper large-v3) fra Hugging Face. Etter det
+          fungerer appen uten nett.
+        </p>
+
+        <p><strong>Hvor lagres opptakene og tekstene?</strong></p>
+        <p>
+          I biblioteksmappen du valgte. Der ligger opptak, transkripsjoner,
+          prosjekter og søkeindeksen. Ingenting lastes opp.
+        </p>
+
+        <p><strong>Hvorfor ser jeg ikke titler, sammendrag eller «Spør prosjektet»?</strong></p>
+        <p>
+          Disse funksjonene bruker Apples innebygde språkmodell og krever
+          macOS 26 eller nyere og en Mac der Apple Intelligence er støttet og
+          slått på. Rett etter at Apple Intelligence er slått på, kan det ta litt
+          tid før Apples modell er klar. Selve transkriberingen fungerer som
+          vanlig uten.
+        </p>
+
+        <p><strong>Koster det noe ekstra?</strong></p>
+        <p>Nei. Sagt har ingen kjøp i appen og ingen abonnement.</p>
+
+        <p><strong>Hva med personvern?</strong></p>
+        <p>
+          Sagt samler ikke inn data. Les mer i
+          <a href="/sagt/personvern/">personvernerklæringen</a>.
+        </p>
+
+        <div class="contact-box">
+          <h2>Trenger du hjelp?</h2>
+          <p>
+            Send en e-post til
+            <a href="mailto:markus@haavelund.no">markus@haavelund.no</a>.
+            Beskriv gjerne hva som skjedde, og hvilken versjon av macOS og
+            Sagt du bruker.
+          </p>
+        </div>
+      </main>
+
+      <footer>
+        <div class="footer-rule"></div>
+        <p>Laget av <a href="/">Markus Haave Lund</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

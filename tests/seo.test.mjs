@@ -18,6 +18,10 @@ const utilityPages = [
   { file: "bremselengder-privacy.html", canonical: `${origin}/bremselengder-privacy.html` },
   { file: "profeten-privacy.html", canonical: `${origin}/profeten-privacy.html` },
   { file: "tocalendar/privacy.html", canonical: `${origin}/tocalendar/privacy.html` },
+  { file: "sagt/index.html", canonical: `${origin}/sagt/` },
+  { file: "sagt/en/index.html", canonical: `${origin}/sagt/en/` },
+  { file: "sagt/personvern/index.html", canonical: `${origin}/sagt/personvern/` },
+  { file: "sagt/en/privacy/index.html", canonical: `${origin}/sagt/en/privacy/` },
 ];
 
 // Omdirigeringsstubber skal bare omdirigere. Google behandler «refresh 0» som en
