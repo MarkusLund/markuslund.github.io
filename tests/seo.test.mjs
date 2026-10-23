@@ -90,13 +90,13 @@ test("the home page describes the linked portfolio with structured data", () => 
   const portfolio = data.find((entry) => entry["@type"] === "ItemList");
   const expectedNames = [
     "SFO-tracker", "Fortelle", "Matte", "SauSank", "RBKNytt.no", "NerdeNytt.no", "AIssue",
-    "SVG Dot Editor", "TilKalender", "Bremselengder", "Jolv", "PongGPT", "Ordel", "Astronaut",
+    "SVG Dot Editor", "TilKalender", "Bremselengder", "Sagt", "Jolv", "PongGPT", "Ordel", "Astronaut",
     "AI Debate", "copyfc", "video-playback-speed", "Console Copy", "Claude Session Starter",
   ];
 
   assert.equal(person?.name, "Markus Haave Lund");
   assert.equal(person?.url, `${origin}/`);
-  assert.equal(portfolio?.itemListElement?.length, 19, "all unique linked apps and services should be represented");
+  assert.equal(portfolio?.itemListElement?.length, 20, "all unique linked apps and services should be represented");
   assert.deepEqual(portfolio.itemListElement.map((entry) => entry.item.name), expectedNames);
   for (const item of portfolio.itemListElement) {
     assert.ok(item.position);
