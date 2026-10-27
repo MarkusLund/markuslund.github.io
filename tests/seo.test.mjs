@@ -30,6 +30,8 @@ const utilityPages = [
 const redirectPages = [
   { file: "sausank/privacy.html", target: "https://sausank.no/personvern" },
   { file: "tocalendar/index.html", target: "../ToCalendar.html" },
+  // Støtte-URL-en i App Store Connect for Bremselengder.
+  { file: "bremselengder-support.html", target: "/bremselengder.html" },
 ];
 
 function read(path) {
